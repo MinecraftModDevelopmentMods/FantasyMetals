@@ -1,0 +1,16 @@
+[
+{
+  "modid": "fantasymetals",
+  "name": "Fantasy Metals",
+  "description": "Fantasy Metals Addon",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://minecraft.curseforge.com/projects/fantasy-metals",
+  "updateUrl": "",
+  "authorList": ["cyb3rkat", "Gunnerwolf"],
+  "credits": "DrCyano (aka Cyanobacterium)",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

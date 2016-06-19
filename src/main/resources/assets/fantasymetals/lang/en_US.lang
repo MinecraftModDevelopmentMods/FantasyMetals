@@ -1,0 +1,53 @@
+itemGroup.fantasymetals.items=Fantasy Metals
+itemGroup.fantasymetals.tools=Fantasy Metals
+itemGroup.fantasymetals.blocks=Fantasy Metals
+nei.fantasymetals.recipehandler.crusher.name=Crushed Blocks/Items
+
+item.fantasymetals:template_arrow.name=Aluminum Arrow
+item.fantasymetals:template_axe.name=Aluminum Axe
+item.fantasymetals:template_bars.name=Aluminum Bars
+item.fantasymetals:template_blend.name=Aluminum Blend
+item.fantasymetals:template_block.name=Aluminum Block
+item.fantasymetals:template_boots.name=Aluminum Boots
+item.fantasymetals:template_bolt.name=Aluminum Bolt
+item.fantasymetals:template_bow.name=Aluminum Bow
+item.fantasymetals:template_chestplate.name=Aluminum Chestplate
+item.fantasymetals:template_crackhammer.name=Aluminum Crack Hammer
+item.fantasymetals:template_crossbow.name=Aluminum Crossbow
+item.fantasymetals:template_door.name=Aluminum Door
+item.fantasymetals:template_fishingrod.name=Aluminum Fishing Rod
+item.fantasymetals:template_gear.name=Aluminum Gear
+item.fantasymetals:template_helmet.name=Aluminum Helmet
+item.fantasymetals:template_hoe.name=Aluminum Hoe
+item.fantasymetals:template_horsearmor.name=Aluminum Horse Armor
+item.fantasymetals:template_ingot.name=Aluminum Ingot
+item.fantasymetals:template_leggings.name=Aluminum Leg Armor
+item.fantasymetals:template_nugget.name=Aluminum Nugget
+item.fantasymetals:template_ore.name=Aluminum Ore
+item.fantasymetals:template_pickaxe.name=Aluminum Pickaxe
+item.fantasymetals:template_powder.name=Powdered Aluminum
+item.fantasymetals:template_rod.name=Aluminum Rod
+item.fantasymetals:template_shears.name=Aluminum Shears
+item.fantasymetals:template_shovel.name=Aluminum Shovel
+item.fantasymetals:template_smallblend.name=Small Pile of Aluminum Blend
+item.fantasymetals:template_smallpowder.name=Small Pile of Powdered Aluminum
+item.fantasymetals:template_sword.name=Aluminum Sword
+item.fantasymetals:template_trapdoor.name=Aluminum Trapdoor
+
+tile.fantasymetals:template_bars.name=Aluminum Bars
+tile.fantasymetals:template_block.name=Aluminum Block
+tile.fantasymetals:template_door.name=Aluminum Door
+tile.fantasymetals:template_ore.name=Aluminum Ore
+tile.fantasymetals:template_plate.name=Aluminum Plate
+tile.fantasymetals:template_trapdoor.name=Aluminum Trapdoor
+
+tooltip.template.tool=Nothing Special
+
+tooltip.template.armor=Nothing Special
+
+achievement.template_maker=Aluminum Brass
+achievement.template_maker.desc=Combine powdered ??? and ??? to make ???
+
+fluid.fantasymetals.template=Molten Aluminum
+
+tile.fantasymetals:template.name=Molten Aluminum
