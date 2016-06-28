@@ -1,11 +1,8 @@
 package fantasymetals.init;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import cyano.basemetals.fluids.CustomFluid;
 import fantasymetals.FantasyMetals;
 import fantasymetals.blocks.BlockMoltenFluid;
+import cyano.basemetals.fluids.CustomFluid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -24,6 +21,9 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class initializes all fluids in Modern Metals and provides some utility 
@@ -57,8 +57,8 @@ public abstract class Fluids {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static void bakeModels(String modID){
-		for(Fluid fluid : fluidBlocks.keySet()){
+	public static void bakeModels(String modID) {
+		for(Fluid fluid : fluidBlocks.keySet()) {
 			BlockFluidBase block = fluidBlocks.get(fluid);
 			Item item = Item.getItemFromBlock(block);
 			final ModelResourceLocation fluidModelLocation = new ModelResourceLocation(
@@ -66,6 +66,7 @@ public abstract class Fluids {
             ModelBakery.registerItemVariants(item);
 			ModelLoader.setCustomMeshDefinition(item, new ItemMeshDefinition()
 			{
+				@Override
 				public ModelResourceLocation getModelLocation(ItemStack stack)
 				{
 					return fluidModelLocation;
@@ -73,6 +74,7 @@ public abstract class Fluids {
 			});
 			ModelLoader.setCustomStateMapper(block, new StateMapperBase()
 			{
+				@Override
 				protected ModelResourceLocation getModelResourceLocation(IBlockState state)
 				{
 					return fluidModelLocation;
@@ -80,7 +82,6 @@ public abstract class Fluids {
 			});
 		}
 	}
-	
 
 	private static Fluid newFluid(String modID, String name, int density, int viscosity, int temperature, int luminosity, int tintColor) {
 		Fluid fluid = new CustomFluid(name, new ResourceLocation(modID+":blocks/molten_metal_still"), new ResourceLocation(modID+":blocks/molten_metal_flow"), tintColor);

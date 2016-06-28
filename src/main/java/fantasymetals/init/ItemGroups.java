@@ -1,11 +1,11 @@
 package fantasymetals.init;
 
+import fantasymetals.FantasyMetals;
+import fantasymetals.init.Items;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import cyano.basemetals.init.FunctionalCreativeTab;
-import fantasymetals.FantasyMetals;
-import fantasymetals.init.Items;
 
 /**
  * This class initializes all item groups in Modern Metals.
@@ -31,15 +31,15 @@ public class ItemGroups extends cyano.basemetals.init.ItemGroups {
 //		itemItem = Items.template_crackhammer;
 //		toolItem = Items.template_crackhammer;
 
-		tab_blocks = new FunctionalCreativeTab( FantasyMetals.MODID.concat(".blocks"), false,
+		tab_blocks = new FunctionalCreativeTab(FantasyMetals.MODID.concat(".blocks"), false,
 				()->Items.template_crackhammer, 
 				(ItemStack a,ItemStack b)->{
 					int delta = Items.getSortingValue(a)-Items.getSortingValue(b);
 					if(delta == 0) return a.getItem().getUnlocalizedName().compareToIgnoreCase(b.getItem().getUnlocalizedName());
 					return delta;
 				});
-//		tab_items = new FunctionalCreativeTab( FantasyMetals.MODID.concat(".items"),()->itemItem);
-//		tab_tools = new FunctionalCreativeTab( FantasyMetals.MODID.concat(".tools"),()->toolItem);
+//		tab_items = new FunctionalCreativeTab(FantasyMetals.MODID.concat(".items"),()->itemItem);
+//		tab_tools = new FunctionalCreativeTab(FantasyMetals.MODID.concat(".tools"),()->toolItem);
 		tab_items = tab_blocks;
 		tab_tools = tab_items;
 		

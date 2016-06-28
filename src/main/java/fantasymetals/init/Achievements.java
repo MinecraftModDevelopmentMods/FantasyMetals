@@ -9,36 +9,35 @@ import net.minecraftforge.common.AchievementPage;
 
 /** initializer for achievements */
 public abstract class Achievements {
-	
+
 	public static AchievementPage page;
 
 	public static Achievement template_maker; // make blend
-	
-	
-	
+
 	private static boolean initDone = false;
-	public static void init(){
-		if(initDone)return;
-		
+	public static void init() {
+		if(initDone) return;
+
 		page = new AchievementPage(FantasyMetals.NAME);
 		AchievementPage.registerAchievementPage(page);
-		
-		template_maker = makeAchievement("template_maker",cyano.basemetals.init.Achievements.metallurgy,0,0,Items.template_ingot);
-		
-		
+
+		template_maker = makeAchievement("template_maker", cyano.basemetals.init.Achievements.metallurgy, 0, 0, Items.template_ingot);
+
 		initDone = true;
 	}
+
 	private static Achievement makeAchievement(String baseName, Achievement requirement, int x, int y, Item icon) {
 		return makeAchievement( baseName, requirement, x, y, new ItemStack(icon));
 	}
+
 	private static Achievement makeAchievement(String baseName, Achievement requirement, int x, int y, Block icon) {
 		return makeAchievement( baseName, requirement, x, y, new ItemStack(icon));
 	}
+
 	private static Achievement makeAchievement(String baseName, Achievement requirement, int x, int y, ItemStack icon) {
 		Achievement a = new Achievement(baseName, baseName, x, y, icon, requirement);
 		a.registerStat();
 		page.getAchievements().add(a);
 		return a;
 	}
-	
 }

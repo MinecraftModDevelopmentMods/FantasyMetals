@@ -1,12 +1,13 @@
 package fantasymetals.init;
 
+import fantasymetals.FantasyMetals;
+//import fantasymetals.blocks.*;
+import fantasymetals.items.*;
 import cyano.basemetals.blocks.*;
 import cyano.basemetals.items.*;
 import cyano.basemetals.material.IMetalObject;
 import cyano.basemetals.material.MetalMaterial;
 import cyano.basemetals.registry.IOreDictionaryEntry;
-import fantasymetals.FantasyMetals;
-import fantasymetals.items.*;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -15,15 +16,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-//import net.minecraftforge.fluids.UniversalBucket;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
-//import modernmetals.init.ItemGroups;
-//import modernmetals.init.Blocks;
-//import modernmetals.init.Materials;
 
 import java.util.*;
 
@@ -40,8 +37,6 @@ public abstract class Items {
 	private static Map<MetalMaterial,List<Item>> itemsByMetal = new HashMap<>();
 	
 	private static Map<BlockDoor,Item> doorMap = new HashMap<>();
-	
-	
 
 	@SuppressWarnings("rawtypes")
 	private static Map<Class,Integer> classSortingValues = new HashMap<>();
@@ -101,7 +96,6 @@ public abstract class Items {
 	public static Item template_rod;
 	public static Item template_gear;
 
-
 	/**
 	 * Gets the inventory item corresponding to a given door block
 	 * @param b The door block
@@ -112,7 +106,7 @@ public abstract class Items {
 	}
 
 	private static boolean initDone = false;
-	public static void init(){
+	public static void init() {
 		if(initDone) return;
 		
 		fantasymetals.init.Blocks.init();
@@ -144,12 +138,10 @@ public abstract class Items {
 		template_rod = create_rod(Materials.template);
 		template_gear = create_gear(Materials.template);
 
-
-		for(Item i : itemRegistry.keySet()){
+		for(Item i : itemRegistry.keySet()) {
 			allItems.put(itemRegistry.get(i), i);
 			if(i instanceof IOreDictionaryEntry) { OreDictionary.registerOre(((IOreDictionaryEntry)i).getOreDictionaryName(), i); }
 		}
-		
 
 		int ss = 0;
 		classSortingValues.put(BlockMetalOre.class, ++ss * 10000);
@@ -183,7 +175,7 @@ public abstract class Items {
 		List<MetalMaterial> metlist = new ArrayList<>(Materials.getAllMetals().size());
 		metlist.addAll(Materials.getAllMetals());
 		metlist.sort((MetalMaterial a, MetalMaterial b)-> a.getName().compareToIgnoreCase(b.getName()));
-		for(int i = 0; i < metlist.size(); i++){
+		for(int i = 0; i < metlist.size(); i++) {
 			materialSortingValues.put(metlist.get(i), i*100);
 		}
 		
@@ -207,8 +199,7 @@ public abstract class Items {
 		}
 		return item;
 	}
-	
-	
+
 	private static Item create_ingot(MetalMaterial metal) {
 		return registerItem(new fantasymetals.items.ItemMetalIngot(metal), metal.getName()+"_"+"ingot", metal, ItemGroups.tab_items);
 	}
@@ -225,11 +216,9 @@ public abstract class Items {
 		return registerItem(new fantasymetals.items.ItemMetalBlend(metal), metal.getName()+"_"+"blend", metal, ItemGroups.tab_items);
 	}
 
-
 	private static Item create_rod(MetalMaterial metal) {
 		return registerItem(new GenericMetalItem(metal), metal.getName()+"_"+"rod", metal, ItemGroups.tab_items);
 	}
-
 
 	private static Item create_gear(MetalMaterial metal) {
 		return registerItem(new GenericMetalItem(metal), metal.getName()+"_"+"gear", metal, ItemGroups.tab_items);
@@ -314,7 +303,7 @@ public abstract class Items {
 	private static Item create_door(MetalMaterial metal, BlockDoor door) {
 		ResourceLocation location = new ResourceLocation(FantasyMetals.MODID, metal.getName()+"_"+"door");
 		Item item = new ItemMetalDoor(door, metal);
-		registerItem(item, location.getResourcePath().toString()+"_"+"item", metal, ItemGroups.tab_blocks);
+		registerItem(item, location.getResourcePath()+"_"+"item", metal, ItemGroups.tab_blocks);
 		item.setUnlocalizedName(location.toString()); // Hack to set name right
 		doorMap.put(door, item);
 		return item;

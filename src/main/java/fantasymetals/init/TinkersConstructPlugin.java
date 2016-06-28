@@ -11,13 +11,12 @@ public class TinkersConstructPlugin {
 	private static boolean initDone = false;
 
 	public static void init() {
-		if(initDone)return;
+		if(initDone) return;
 
 		if(Loader.isModLoaded("tconstruct")) {
 			registerFluid(Fluids.fluidTemplate);
-			
-//			registerAlloy("template", 2, "template", 1, "template", 1);
 
+//			registerAlloy("template", 2, "template", 1, "template", 1);
 		}
 
 		initDone = true;
