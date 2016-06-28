@@ -53,7 +53,7 @@ public abstract class Items {
 	 * @param name The name of the item in question
 	 * @return The item matching that name, or null if there isn't one
 	 */
-	public static Item getItemByName(String name){
+	public static Item getItemByName(String name) {
 		return allItems.get(name);
 	}
 	/**
@@ -63,14 +63,14 @@ public abstract class Items {
 	 * @return The name of the item, or null if the item is not a Modern Metals 
 	 * item.
 	 */
-	public static String getNameOfItem(Item i){
+	public static String getNameOfItem(Item i) {
 		return itemRegistry.get(i);
 	}
 	/**
 	 * Gets a map of all items added, sorted by metal
 	 * @return An unmodifiable map of added items catagorized by metal material
 	 */
-	public static Map<MetalMaterial,List<Item>> getItemsByMetal(){
+	public static Map<MetalMaterial,List<Item>> getItemsByMetal() {
 		return Collections.unmodifiableMap(itemsByMetal);
 	}
 
@@ -107,7 +107,7 @@ public abstract class Items {
 	 * @param b The door block
 	 * @return The item that the player should use to place that kind of door
 	 */
-	public static Item getDoorItemForBlock(BlockMetalDoor b){
+	public static Item getDoorItemForBlock(BlockMetalDoor b) {
 		return doorMap.get(b);
 	}
 
@@ -147,7 +147,7 @@ public abstract class Items {
 
 		for(Item i : itemRegistry.keySet()){
 			allItems.put(itemRegistry.get(i), i);
-			if(i instanceof IOreDictionaryEntry){OreDictionary.registerOre(((IOreDictionaryEntry)i).getOreDictionaryName(), i);}
+			if(i instanceof IOreDictionaryEntry) { OreDictionary.registerOre(((IOreDictionaryEntry)i).getOreDictionaryName(), i); }
 		}
 		
 
@@ -192,16 +192,16 @@ public abstract class Items {
 
 
 
-	private static Item registerItem(Item item, String name, MetalMaterial metal, CreativeTabs tab){
+	private static Item registerItem(Item item, String name, MetalMaterial metal, CreativeTabs tab) {
 		ResourceLocation location = new ResourceLocation(FantasyMetals.MODID, name);
 		item.setRegistryName(location);
 		item.setUnlocalizedName(location.toString());
 		GameRegistry.register(item); 
 		itemRegistry.put(item, name);
-		if(tab != null){
+		if(tab != null) {
 			item.setCreativeTab(tab);
 		}
-		if(metal != null){
+		if(metal != null) {
 			itemsByMetal.computeIfAbsent(metal, (MetalMaterial g)->new ArrayList<>());
 			itemsByMetal.get(metal).add(item);
 		}
@@ -209,11 +209,11 @@ public abstract class Items {
 	}
 	
 	
-	private static Item create_ingot(MetalMaterial metal){
+	private static Item create_ingot(MetalMaterial metal) {
 		return registerItem(new fantasymetals.items.ItemMetalIngot(metal), metal.getName()+"_"+"ingot", metal, ItemGroups.tab_items);
 	}
 	
-	private static Item create_nugget(MetalMaterial metal){
+	private static Item create_nugget(MetalMaterial metal) {
 		return registerItem(new ItemMetalNugget(metal), metal.getName()+"_"+"nugget", metal, ItemGroups.tab_items);
 	}
 	
@@ -221,97 +221,97 @@ public abstract class Items {
 		return registerItem(new ItemMetalPowder(metal), metal.getName()+"_"+"powder", metal, ItemGroups.tab_items);
 	}
 	
-	private static Item create_blend(MetalMaterial metal){
+	private static Item create_blend(MetalMaterial metal) {
 		return registerItem(new fantasymetals.items.ItemMetalBlend(metal), metal.getName()+"_"+"blend", metal, ItemGroups.tab_items);
 	}
 
 
-	private static Item create_rod(MetalMaterial metal){
+	private static Item create_rod(MetalMaterial metal) {
 		return registerItem(new GenericMetalItem(metal), metal.getName()+"_"+"rod", metal, ItemGroups.tab_items);
 	}
 
 
-	private static Item create_gear(MetalMaterial metal){
+	private static Item create_gear(MetalMaterial metal) {
 		return registerItem(new GenericMetalItem(metal), metal.getName()+"_"+"gear", metal, ItemGroups.tab_items);
 	}
 	
-	private static Item create_axe(MetalMaterial metal){
+	private static Item create_axe(MetalMaterial metal) {
 		return registerItem(new ItemMetalAxe(metal), metal.getName()+"_"+"axe", metal, ItemGroups.tab_tools);
 	}
 
-	private static Item create_crackhammer(MetalMaterial metal){
+	private static Item create_crackhammer(MetalMaterial metal) {
 		return registerItem(new ItemMetalCrackHammer(metal), metal.getName()+"_"+"crackhammer", metal, ItemGroups.tab_tools);
 	}
 	
-	private static Item create_hoe(MetalMaterial metal){
+	private static Item create_hoe(MetalMaterial metal) {
 		return registerItem(new ItemMetalHoe(metal), metal.getName()+"_"+"hoe", metal, ItemGroups.tab_tools);
 	}
 	
-	private static Item create_pickaxe(MetalMaterial metal){
+	private static Item create_pickaxe(MetalMaterial metal) {
 		return registerItem(new ItemMetalPickaxe(metal), metal.getName()+"_"+"pickaxe", metal, ItemGroups.tab_tools);
 	}
 	
-	private static Item create_shovel(MetalMaterial metal){
+	private static Item create_shovel(MetalMaterial metal) {
 		return registerItem(new ItemMetalShovel(metal), metal.getName()+"_"+"shovel", metal, ItemGroups.tab_tools);
 	}
 	
-	private static Item create_sword(MetalMaterial metal){
+	private static Item create_sword(MetalMaterial metal) {
 		return registerItem(new ItemMetalSword(metal), metal.getName()+"_"+"sword", metal, ItemGroups.tab_tools);
 	}
 
-	private static Item create_helmet(MetalMaterial metal){
+	private static Item create_helmet(MetalMaterial metal) {
 		return registerItem(ItemMetalArmor.createHelmet(metal), metal.getName()+"_"+"helmet", metal, ItemGroups.tab_tools);
 	}
 
-	private static Item create_chestplate(MetalMaterial metal){
+	private static Item create_chestplate(MetalMaterial metal) {
 		return registerItem(ItemMetalArmor.createChestplate(metal), metal.getName()+"_"+"chestplate", metal, ItemGroups.tab_tools);
 	}
 
-	private static Item create_leggings(MetalMaterial metal){
+	private static Item create_leggings(MetalMaterial metal) {
 		return registerItem(ItemMetalArmor.createLeggings(metal), metal.getName()+"_"+"leggings", metal, ItemGroups.tab_tools);
 	}
 
-	private static Item create_boots(MetalMaterial metal){
+	private static Item create_boots(MetalMaterial metal) {
 		return registerItem(ItemMetalArmor.createBoots(metal), metal.getName()+"_"+"boots", metal, ItemGroups.tab_tools);
 	}
 
-	private static Item create_horsearmor(MetalMaterial metal){
+	private static Item create_horsearmor(MetalMaterial metal) {
 		return registerItem(new ItemMetalHorseArmor(metal), metal.getName()+"_"+"horsearmor", metal, ItemGroups.tab_tools);
 	}
 
-	private static Item create_arrow(MetalMaterial metal){
+	private static Item create_arrow(MetalMaterial metal) {
 		return registerItem(new ItemMetalArrow(metal), metal.getName()+"_"+"arrow", metal, ItemGroups.tab_tools);
 	}
 
-	private static Item create_bolt(MetalMaterial metal){
+	private static Item create_bolt(MetalMaterial metal) {
 		return registerItem(new ItemMetalBolt(metal), metal.getName()+"_"+"bolt", metal, ItemGroups.tab_tools);
 	}
 
-	private static Item create_bow(MetalMaterial metal){
+	private static Item create_bow(MetalMaterial metal) {
 		return registerItem(new ItemMetalBow(metal), metal.getName()+"_"+"bow", metal, ItemGroups.tab_tools);
 	}
 
-	private static Item create_crossbow(MetalMaterial metal){
+	private static Item create_crossbow(MetalMaterial metal) {
 		return registerItem(new ItemMetalCrossbow(metal), metal.getName()+"_"+"crossbow", metal, ItemGroups.tab_tools);
 	}
 
-	private static Item create_shears(MetalMaterial metal){
+	private static Item create_shears(MetalMaterial metal) {
 		return registerItem(new ItemMetalShears(metal), metal.getName()+"_"+"shears", metal, ItemGroups.tab_tools);
 	}
 	
-	private static Item create_smallblend(MetalMaterial metal){
+	private static Item create_smallblend(MetalMaterial metal) {
 		return registerItem(new ItemMetalSmallBlend(metal), metal.getName()+"_"+"smallblend", metal, ItemGroups.tab_items);
 	}
 
-	private static Item create_fishingrod(MetalMaterial metal){
+	private static Item create_fishingrod(MetalMaterial metal) {
 		return registerItem(new ItemMetalFishingRod(metal), metal.getName()+"_"+"fishingrod", metal, ItemGroups.tab_tools);
 	}
 
-	private static Item create_smallpowder(MetalMaterial metal){
+	private static Item create_smallpowder(MetalMaterial metal) {
 		return registerItem(new ItemMetalSmallPowder(metal), metal.getName()+"_"+"smallpowder", metal, ItemGroups.tab_items);
 	}
 
-	private static Item create_door(MetalMaterial metal, BlockDoor door){
+	private static Item create_door(MetalMaterial metal, BlockDoor door) {
 		ResourceLocation location = new ResourceLocation(FantasyMetals.MODID, metal.getName()+"_"+"door");
 		Item item = new ItemMetalDoor(door, metal);
 		registerItem(item, location.getResourcePath().toString()+"_"+"item", metal, ItemGroups.tab_blocks);
@@ -321,15 +321,15 @@ public abstract class Items {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public static int getSortingValue(ItemStack a){
+	public static int getSortingValue(ItemStack a) {
 		int classVal = 990000;
 		int metalVal = 9900;
-		if(a.getItem() instanceof ItemBlock && ((ItemBlock)a.getItem()).getBlock() instanceof IMetalObject){
+		if(a.getItem() instanceof ItemBlock && ((ItemBlock)a.getItem()).getBlock() instanceof IMetalObject) {
 			classVal = classSortingValues.computeIfAbsent(((ItemBlock)a.getItem()).getBlock().getClass(),
 					(Class c)->990000);
 			metalVal = materialSortingValues.computeIfAbsent(((IMetalObject)((ItemBlock)a.getItem()).getBlock()).getMetalMaterial(),
 					(MetalMaterial m)->9900);
-		} else if(a.getItem() instanceof IMetalObject){
+		} else if(a.getItem() instanceof IMetalObject) {
 			classVal = classSortingValues.computeIfAbsent(a.getItem().getClass(),
 					(Class c)->990000);
 			metalVal = materialSortingValues.computeIfAbsent(((IMetalObject)a.getItem()).getMetalMaterial(),
@@ -339,8 +339,8 @@ public abstract class Items {
 	}
 	
 	@SideOnly(Side.CLIENT)
-	public static void registerItemRenders(FMLInitializationEvent event){
-		for(Item i : itemRegistry.keySet()){
+	public static void registerItemRenders(FMLInitializationEvent event) {
+		for(Item i : itemRegistry.keySet()) {
 			Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
 			.register(i, 0, 
 				new ModelResourceLocation(new ResourceLocation(FantasyMetals.MODID, itemRegistry.get(i)), "inventory"));

@@ -48,7 +48,7 @@ public abstract class Fluids {
 		if(initDone) return;
 
 		// fluids
-		fluidTemplate = newFluid(FantasyMetals.MODID, "template", 2000,10000,330,10, 0xFFFFFFFF);
+		fluidTemplate = newFluid(FantasyMetals.MODID, "template", 2000, 10000, 330, 10, 0xFFFFFFFF);
 
 		// fluid blocks
 		fluidBlockTemplate = registerFluidBlock(fluidTemplate, new BlockMoltenFluid(fluidTemplate),"template");

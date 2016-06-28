@@ -14,7 +14,7 @@ public abstract class Materials extends cyano.basemetals.init.Materials {
 	public static MetalMaterial template;
 
 	private static boolean initDone = false;
-	public static void init(){
+	public static void init() {
 		if(initDone)return;
 		
 		// mod metals
@@ -23,7 +23,7 @@ public abstract class Materials extends cyano.basemetals.init.Materials {
 		initDone = true;
 	}
 
-	private static MetalMaterial addMaterial(String name, double hardness, double strength, double magic){
+	private static MetalMaterial addMaterial(String name, double hardness, double strength, double magic) {
 		MetalMaterial m = new MetalMaterial(name,(float)hardness,(float)strength,(float)magic);
 		registerMaterial(name, m);
 		return m;

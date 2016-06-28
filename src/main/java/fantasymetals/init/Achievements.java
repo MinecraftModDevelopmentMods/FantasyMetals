@@ -29,13 +29,13 @@ public abstract class Achievements {
 		initDone = true;
 	}
 	private static Achievement makeAchievement(String baseName, Achievement requirement, int x, int y, Item icon) {
-		return makeAchievement( baseName,  requirement,  x,  y, new ItemStack( icon));
+		return makeAchievement( baseName, requirement, x, y, new ItemStack(icon));
 	}
 	private static Achievement makeAchievement(String baseName, Achievement requirement, int x, int y, Block icon) {
-		return makeAchievement( baseName,  requirement,  x,  y, new ItemStack( icon));
+		return makeAchievement( baseName, requirement, x, y, new ItemStack(icon));
 	}
 	private static Achievement makeAchievement(String baseName, Achievement requirement, int x, int y, ItemStack icon) {
-		Achievement a = new Achievement(baseName,baseName,x,y,icon,requirement);
+		Achievement a = new Achievement(baseName, baseName, x, y, icon, requirement);
 		a.registerStat();
 		page.getAchievements().add(a);
 		return a;

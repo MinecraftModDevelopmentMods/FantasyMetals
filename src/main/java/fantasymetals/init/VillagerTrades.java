@@ -29,8 +29,8 @@ import net.minecraftforge.fml.common.FMLLog;
 public class VillagerTrades extends cyano.basemetals.init.VillagerTrades {
 	private static boolean initDone = false;
 
-	public static void init(){
-		if(initDone)return;
+	public static void init() {
+		if(initDone) return;
 		
 		fantasymetals.init.Materials.init();
 		fantasymetals.init.Items.init();
@@ -55,7 +55,7 @@ public class VillagerTrades extends cyano.basemetals.init.VillagerTrades {
 				.forEach((Map.Entry<MetalMaterial,List<Item>> e)->{
 					final MetalMaterial m = e.getKey();
 					if(m == null) return;
-					for(Item i : e.getValue()){
+					for(Item i : e.getValue()) {
 						if(i instanceof ItemArmor){allArmors.computeIfAbsent(m, (MetalMaterial g)->new ArrayList<>()).add(i); continue;}
 						if(i instanceof ItemMetalCrackHammer){allHammers.put(m,i); continue;}
 						if(i instanceof ItemSword){allSwords.put(m,i); continue;}
@@ -70,7 +70,7 @@ public class VillagerTrades extends cyano.basemetals.init.VillagerTrades {
 
 		Map<Integer,List<ITradeList>> tradesTable = new HashMap<>(); // integer is used as byte data: (unused) (profession) (career) (level)
 
-		for(MetalMaterial m : fantasymetals.init.Materials.getAllMetals()){
+		for(MetalMaterial m : fantasymetals.init.Materials.getAllMetals()) {
 			float value = m.hardness + m.strength + m.magicAffinity + m.getToolHarvestLevel();
 			// for reference, iron has a value of 21.5, gold would be 14, copper is 14, and diamond is 30
 			int emeraldPurch = emeraldPurchaseValue(value);
@@ -81,7 +81,7 @@ public class VillagerTrades extends cyano.basemetals.init.VillagerTrades {
 			int weaponsmith = (3 << 16) | (2 << 8) | (tradeLevel);
 			int toolsmith = (3 << 16) | (3 << 8) | (tradeLevel);
 
-			if(allIngots.containsKey(m)){
+			if(allIngots.containsKey(m)) {
 				ITradeList[] ingotTrades = makeTradePalette(
 						makePurchasePalette(emeraldPurch, 12, allIngots.get(m)),
 						makeSalePalette(emeraldSale, 12, allIngots.get(m))
@@ -111,14 +111,14 @@ public class VillagerTrades extends cyano.basemetals.init.VillagerTrades {
 										allHammers.get(m)))
 						));
 			}
-			if(allSwords.containsKey(m)){
+			if(allSwords.containsKey(m)) {
 				tradesTable.computeIfAbsent(weaponsmith,(Integer key)->new ArrayList<>())
 						.addAll(Arrays.asList(
 						makeTradePalette(
 						makePurchasePalette(emeraldPurch, 1, allSwords.get(m)))
 						));
 			}
-			if(allArmors.containsKey(m)){
+			if(allArmors.containsKey(m)) {
 				tradesTable.computeIfAbsent(armorsmith,(Integer key)->new ArrayList<>())
 						.addAll(Arrays.asList(
 						makeTradePalette(
@@ -126,7 +126,7 @@ public class VillagerTrades extends cyano.basemetals.init.VillagerTrades {
 						)));
 			}
 			
-			if(m.magicAffinity > 5){
+			if(m.magicAffinity > 5) {
 				if(allHammers.containsKey(m)) tradesTable.computeIfAbsent((3 << 16) | (3 << 8) | (tradeLevel+2),(Integer key)->new ArrayList<>())
 						.addAll(Arrays.asList(
 						new ListEnchantedItemForEmeralds(allHammers.get(m), new PriceInfo(emeraldPurch+7, emeraldPurch+12))));
@@ -154,7 +154,7 @@ public class VillagerTrades extends cyano.basemetals.init.VillagerTrades {
 				.addAll(Arrays.asList(
 				makePurchasePalette(1,10,Items.carbon_powder)));
 		
-		for(Integer k : tradesTable.keySet()){
+		for(Integer k : tradesTable.keySet()) {
 			List<ITradeList> trades = tradesTable.get(k);
 			int profession = (k >> 16) & 0xFF;
 			int career = (k >> 8) & 0xFF;
@@ -175,7 +175,7 @@ public class VillagerTrades extends cyano.basemetals.init.VillagerTrades {
 		initDone = true;
 	}
 
-	private static int emeraldPurchaseValue(float value){
+	private static int emeraldPurchaseValue(float value) {
 		return Math.max(1, (int)(value * 0.2F));
 	}
 	private static int emeraldSaleValue(float value){
@@ -185,14 +185,14 @@ public class VillagerTrades extends cyano.basemetals.init.VillagerTrades {
 	private static int tradeLevel(float value){
 		return Math.max(1, Math.min(4,(int)(value * 0.1F)));
 	}
-	private static int fluctuation(int baseValue){
+	private static int fluctuation(int baseValue) {
 		if(baseValue <= 1) return 0;
 		return Math.max(2, baseValue / 4);
 	}
 
 	private static ITradeList[] makePurchasePalette(int emeraldPrice, int stackSize, Item... items){
 		ITradeList[] trades = new ITradeList[items.length];
-		for(int i = 0; i < items.length; i++){
+		for(int i = 0; i < items.length; i++) {
 			Item item = items[i];
 			trades[i] = new SimpleTrade(
 					new ItemStack(net.minecraft.init.Items.EMERALD,emeraldPrice,0), fluctuation(emeraldPrice),
@@ -202,7 +202,7 @@ public class VillagerTrades extends cyano.basemetals.init.VillagerTrades {
 		return trades;
 	}
 
-	private static ITradeList[] makeSalePalette(int emeraldValue, int stackSize, Item... items){
+	private static ITradeList[] makeSalePalette(int emeraldValue, int stackSize, Item... items) {
 		ITradeList[] trades = new ITradeList[items.length];
 		for(int i = 0; i < items.length; i++){
 			Item item = items[i];
@@ -214,7 +214,7 @@ public class VillagerTrades extends cyano.basemetals.init.VillagerTrades {
 		return trades;
 	}
 	
-	private static ITradeList[] makeTradePalette(ITradeList[]... list){
+	private static ITradeList[] makeTradePalette(ITradeList[]... list) {
 		if(list.length == 1) return list[0];
 		int totalsize = 0;
 		for(ITradeList[] e : list){

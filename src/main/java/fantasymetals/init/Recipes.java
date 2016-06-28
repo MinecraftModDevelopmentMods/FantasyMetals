@@ -19,8 +19,8 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 public class Recipes extends cyano.basemetals.init.Recipes {
 
 	private static boolean initDone = false;
-	public static void init(){
-		if(initDone)return;
+	public static void init() {
+		if(initDone) return;
 
 		fantasymetals.init.Materials.init();
 		fantasymetals.init.Blocks.init();
@@ -30,11 +30,12 @@ public class Recipes extends cyano.basemetals.init.Recipes {
 		
 		initDone = true;
 	}
-	private static void initMetalRecipes(){
+
+	private static void initMetalRecipes() {
 		List<MetalMaterial> exceptions = Arrays.asList(Materials.vanilla_iron,Materials.vanilla_gold,Materials.vanilla_diamond,Materials.vanilla_stone,Materials.vanilla_wood,Materials.copper,Materials.silver,Materials.tin,Materials.lead,Materials.nickel,Materials.bronze,Materials.brass,Materials.steel,Materials.invar,Materials.electrum,Materials.coldiron,Materials.mithril,Materials.adamantine,Materials.starsteel,Materials.zinc,Materials.aquarium);
 
-		for(MetalMaterial metal : Materials.getAllMetals()){
-			if(exceptions.contains(metal))continue;
+		for(MetalMaterial metal : Materials.getAllMetals()) {
+			if(exceptions.contains(metal)) continue;
 			String baseName = metal.getName()+"_";
 			String oreDictName = metal.getCapitalizedName();
 			Item axe = fantasymetals.init.Items.getItemByName(baseName+"axe");
@@ -72,72 +73,71 @@ public class Recipes extends cyano.basemetals.init.Recipes {
 
 			// NOTE: smelting XP is based on output item, not input item
 			// ingot-related recipes 
-			if(ore != null && powder != null){
+			if(ore != null && powder != null) {
 				CrusherRecipeRegistry.addNewCrusherRecipe("ore"+oreDictName,new ItemStack(powder,2));
 			}
-			if(ore != null && ingot != null){
+			if(ore != null && ingot != null) {
 				GameRegistry.addSmelting(ore, new ItemStack(ingot,1), metal.getOreSmeltXP());
 			}
-			if(ingot != null && powder != null){
+			if(ingot != null && powder != null) {
 				CrusherRecipeRegistry.addNewCrusherRecipe("ingot"+oreDictName,new ItemStack(powder,1));
 				GameRegistry.addSmelting(powder, new ItemStack(ingot,1), metal.getOreSmeltXP());
 			}
-			if(ingot != null && blend != null){
+			if(ingot != null && blend != null) {
 				GameRegistry.addSmelting(blend, new ItemStack(ingot,1), metal.getOreSmeltXP());
 			}
-			if(ingot != null && nugget != null){
+			if(ingot != null && nugget != null) {
 				GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(nugget,9), new ItemStack(ingot)));
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ingot), "xxx","xxx","xxx",'x',"nugget"+oreDictName));
 			}
-			if(ingot != null && block != null){
+			if(ingot != null && block != null) {
 				GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ingot,9), new ItemStack(block)));
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(block), "xxx","xxx","xxx",'x',"ingot"+oreDictName));
 			}
-			if(ingot != null && plate != null){
+			if(ingot != null && plate != null) {
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(plate,3), "xxx",'x',"ingot"+oreDictName));
 				GameRegistry.addSmelting(plate, new ItemStack(ingot,1), metal.getOreSmeltXP());
 			}
-			if(block != null && powder != null){
+			if(block != null && powder != null) {
 				CrusherRecipeRegistry.addNewCrusherRecipe("block"+oreDictName, new ItemStack(powder,9));
 			}
-			if(ingot != null && bars != null){
+			if(ingot != null && bars != null) {
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(bars,16), "xxx","xxx",'x',"ingot"+oreDictName));
 				OreDictionary.registerOre("bars", bars);
 			}
-			if(ingot != null && rod != null){
+			if(ingot != null && rod != null) {
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(rod,4), "x","x",'x',"ingot"+oreDictName));
-				OreDictionary.registerOre("stick"+oreDictName,rod);
-				OreDictionary.registerOre("rod"+oreDictName,rod);
-				OreDictionary.registerOre("rod",rod);
+				OreDictionary.registerOre("stick"+oreDictName, rod);
+				OreDictionary.registerOre("rod"+oreDictName, rod);
+				OreDictionary.registerOre("rod", rod);
 			}
-			if(nugget != null && rod != null){
+			if(nugget != null && rod != null) {
 				GameRegistry.addSmelting(rod, new ItemStack(nugget,4), 0);
 			}
-			if(rod != null && bars != null){
+			if(rod != null && bars != null) {
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(bars,4), "xxx",'x',"rod"+oreDictName));
 			}
-			if(rod != null && ingot != null && gear != null){
+			if(rod != null && ingot != null && gear != null) {
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(gear,4), " x ","x/x"," x ",'x',"ingot"+oreDictName,'/',"rod"+oreDictName));
-				OreDictionary.registerOre("gear"+oreDictName,gear);
+				OreDictionary.registerOre("gear"+oreDictName, gear);
 				OreDictionary.registerOre("gear",gear);
-				if(metal == Materials.steel)OreDictionary.registerOre("sprocket",gear);
+				if(metal == Materials.steel) OreDictionary.registerOre("sprocket",gear);
 			}
-			if(ingot != null && door != null){
+			if(ingot != null && door != null) {
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(door,3), "xx","xx","xx",'x',"ingot"+oreDictName));
 				OreDictionary.registerOre("door", door);
 			}
-			if(ingot != null && trapdoor != null){
+			if(ingot != null && trapdoor != null) {
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(trapdoor), "xx","xx",'x',"ingot"+oreDictName));
 				OreDictionary.registerOre("trapdoor", trapdoor);
 			}
 
-			if(blend != null && smallblend != null){
-				// TODO - why the hell doesn't this work?
+			if(blend != null && smallblend != null) {
 				GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(smallblend,9), new ItemStack(blend)));
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(blend), "xxx","xxx","xxx",'x',new ItemStack(smallblend)));
 				GameRegistry.addSmelting(smallblend, new ItemStack(nugget,1), metal.getOreSmeltXP());
 			}
-			if(powder != null && smallpowder != null){
+			if(powder != null && smallpowder != null) {
 				// TODO - small powder to powder recipe doesn't use oredict
 				GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(smallpowder,9), new ItemStack(powder)));
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(powder), "xxx","xxx","xxx",'x',new ItemStack(smallpowder)));

@@ -38,8 +38,8 @@ public class ItemGroups extends cyano.basemetals.init.ItemGroups {
 					if(delta == 0) return a.getItem().getUnlocalizedName().compareToIgnoreCase(b.getItem().getUnlocalizedName());
 					return delta;
 				});
-//		tab_items = new FunctionalCreativeTab( BaseMetals.MODID.concat(".items"),()->itemItem);
-//		tab_tools = new FunctionalCreativeTab( BaseMetals.MODID.concat(".tools"),()->toolItem);
+//		tab_items = new FunctionalCreativeTab( FantasyMetals.MODID.concat(".items"),()->itemItem);
+//		tab_tools = new FunctionalCreativeTab( FantasyMetals.MODID.concat(".tools"),()->toolItem);
 		tab_items = tab_blocks;
 		tab_tools = tab_items;
 		
