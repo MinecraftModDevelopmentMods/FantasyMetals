@@ -22,7 +22,7 @@ public class TinkersConstructPlugin {
 		if(initDone) return;
 
 		if(Loader.isModLoaded("tconstruct")) {
-			registerFluid(Fluids.fluidTemplate);
+			registerFluid(Fluids.fluidTemplate, true);
 
 //			registerAlloy("template", 2, "template", 1, "template", 1);
 		}
@@ -33,6 +33,7 @@ public class TinkersConstructPlugin {
 	/**
 	 * 
 	 * @param fluid
+	 * @param toolforge
 	 */
 	public static void registerFluid(Fluid fluid, boolean toolforge) {
 		if(Loader.isModLoaded("tconstruct")) {

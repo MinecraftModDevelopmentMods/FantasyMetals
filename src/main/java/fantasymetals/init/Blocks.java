@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * This class initializes all blocks in Modern Metals and provides some utility 
+ * This class initializes all blocks in Fantasy Metals and provides some utility 
  * methods for looking up blocks. 
  * @author DrCyano
  *

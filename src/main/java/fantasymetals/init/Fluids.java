@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * This class initializes all fluids in Modern Metals and provides some utility 
+ * This class initializes all fluids in Fantasy Metals and provides some utility 
  * methods for looking up fluids. 
  * @author DrCyano
  *

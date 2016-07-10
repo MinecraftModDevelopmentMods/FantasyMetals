@@ -1,7 +1,6 @@
 package fantasymetals.init;
 
 import fantasymetals.init.Materials;
-import fantasymetals.init.Items;
 import cyano.basemetals.material.MetalMaterial;
 import cyano.basemetals.registry.CrusherRecipeRegistry;
 import net.minecraft.block.Block;
@@ -33,9 +32,9 @@ public class Recipes extends cyano.basemetals.init.Recipes {
 		fantasymetals.init.Materials.init();
 		fantasymetals.init.Blocks.init();
 		fantasymetals.init.Items.init();
-		
+
 		initMetalRecipes();
-		
+
 		initDone = true;
 	}
 

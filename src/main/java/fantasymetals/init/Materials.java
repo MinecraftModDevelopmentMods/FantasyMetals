@@ -3,9 +3,9 @@ package fantasymetals.init;
 import cyano.basemetals.material.MetalMaterial;
 
 /**
- * This class initializes all of the metal materials in Fantasy Metals. It also 
+ * This class initializes all of the metal materials in Fantasy Metals. It also
  * contains utility methods for looking up materials by name and finding the 
- * tool and armor material equivalents for a given metal.  
+ * tool and armor material equivalents for a given metal.
  * @author DrCyano
  *
  */

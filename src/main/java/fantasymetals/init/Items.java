@@ -25,7 +25,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.*;
 
 /**
- * This class initializes all items in Modern Metals and provides some utility 
+ * This class initializes all items in Fantasy Metals and provides some utility 
  * methods for looking up items. 
  * @author DrCyano
  *
