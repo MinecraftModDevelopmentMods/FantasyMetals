@@ -26,10 +26,20 @@ import java.util.Map;
  *
  */
 public abstract class Blocks {
-//	private static Map<Block,String> blockRegistry = new HashMap<>();
-	private static final Map<String,Block> allBlocks = new HashMap<>();
-//	private static Map<MetalMaterial,List<Block>> blocksByMetal = new HashMap<>();
-	
+
+	public static Block template_bars;
+	public static Block template_block;
+	public static Block template_plate;
+	public static BlockDoor template_door;
+	public static Block template_ore;
+	public static Block template_trapdoor;
+
+	private static boolean initDone = false;
+
+//	private static Map<Block, String> blockRegistry = new HashMap<>();
+	private static final Map<String, Block> allBlocks = new HashMap<>();
+//	private static Map<MetalMaterial, List<Block>> blocksByMetal = new HashMap<>();
+
 	/**
 	 * Gets an block by its name. The name is the name as it is registered in 
 	 * the GameRegistry, not its unlocalized name (the unlocalized name is the 
@@ -41,17 +51,12 @@ public abstract class Blocks {
 		return allBlocks.get(name);
 	}
 
-	public static Block template_bars;
-	public static Block template_block;
-	public static Block template_plate;
-	public static BlockDoor template_door;
-	public static Block template_ore;
-	public static Block template_trapdoor;
-
-	private static boolean initDone = false;
+	/**
+	 * 
+	 */
 	public static void init() {
-		if(initDone)return;
-		
+		if(initDone) return;
+
 		fantasymetals.init.Materials.init();
 		fantasymetals.init.ItemGroups.init();
 
@@ -116,6 +121,10 @@ public abstract class Blocks {
 		return addBlock(new BlockMetalTrapDoor(metal), metal.getName()+"_trapdoor");
 	}
 
+	/**
+	 * 
+	 * @param event
+	 */
 	@SideOnly(Side.CLIENT)
 	public static void registerItemRenders(FMLInitializationEvent event) {
 		for(String name : allBlocks.keySet()) {

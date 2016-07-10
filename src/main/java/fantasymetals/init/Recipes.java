@@ -1,7 +1,7 @@
 package fantasymetals.init;
 
-import fantasymetals.init.Items;
 import fantasymetals.init.Materials;
+import fantasymetals.init.Items;
 import cyano.basemetals.material.MetalMaterial;
 import cyano.basemetals.registry.CrusherRecipeRegistry;
 import net.minecraft.block.Block;
@@ -15,9 +15,18 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 
+ * @author Jasmine Iwanek
+ *
+ */
 public class Recipes extends cyano.basemetals.init.Recipes {
 
 	private static boolean initDone = false;
+
+	/**
+	 * 
+	 */
 	public static void init() {
 		if(initDone) return;
 
@@ -31,7 +40,7 @@ public class Recipes extends cyano.basemetals.init.Recipes {
 	}
 
 	private static void initMetalRecipes() {
-		List<MetalMaterial> exceptions = Arrays.asList(Materials.vanilla_iron, Materials.vanilla_gold, Materials.vanilla_diamond, Materials.vanilla_stone, Materials.vanilla_wood, Materials.copper, Materials.silver, Materials.tin, Materials.lead,Materials.nickel, Materials.bronze, Materials.brass, Materials.steel, Materials.invar, Materials.electrum, Materials.coldiron, Materials.mithril, Materials.adamantine, Materials.starsteel, Materials.zinc, Materials.aquarium);
+		List<MetalMaterial> exceptions = Arrays.asList(Materials.vanilla_iron, Materials.vanilla_gold, Materials.vanilla_diamond, Materials.vanilla_stone, Materials.vanilla_wood, Materials.copper, Materials.silver, Materials.tin, Materials.lead, Materials.nickel, Materials.bronze, Materials.brass, Materials.steel, Materials.invar, Materials.electrum, Materials.coldiron, Materials.mithril, Materials.adamantine, Materials.starsteel, Materials.zinc, Materials.aquarium);
 
 		for(MetalMaterial metal : Materials.getAllMetals()) {
 			if(exceptions.contains(metal)) continue;
@@ -151,7 +160,8 @@ public class Recipes extends cyano.basemetals.init.Recipes {
 			if(ingot != null && leggings != null) GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(leggings), "xxx", "x x", "x x", 'x', "ingot"+oreDictName));
 			if(ingot != null && axe != null) GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(axe), "xx", "x/", " /", 'x', "ingot"+oreDictName, '/', "stickWood"));
 //			if(ingot != null && axe != null) GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(axe), "xx", "/x", "/ ", 'x', "ingot"+oreDictName, '/', "stickWood"));
-			if(block != null && crackhammer != null && (!BaseMetals.disableAllHammers)) GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(crackhammer), "x", "/", "/", 'x', "block"+oreDictName, '/', "stickWood"));
+//			if(block != null && crackhammer != null && (!BaseMetals.disableAllHammers)) GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(crackhammer), "x", "/", "/", 'x', "block"+oreDictName, '/', "stickWood"));
+			if(block != null && crackhammer != null) GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(crackhammer), "x", "/", "/", 'x', "block"+oreDictName, '/', "stickWood"));
 			if(ingot != null && hoe != null) GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(hoe), "xx", " /", " /", 'x', "ingot"+oreDictName, '/', "stickWood"));
 //			if(ingot != null && hoe != null) GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(hoe), "xx", "/ ", "/ ", 'x', "ingot"+oreDictName, '/', "stickWood"));
 			if(ingot != null && pickaxe != null) GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(pickaxe), "xxx", " / ", " / ", 'x', "ingot"+oreDictName, '/', "stickWood"));
@@ -167,7 +177,7 @@ public class Recipes extends cyano.basemetals.init.Recipes {
 //			if(rod != null && gear != null && crossbow != null) GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(crossbow), "zxx", " yx", "x z", 'x', "rod"+oreDictName, 'y', "gear"+oreDictName, 'z', Items.STRING));
 //			if(rod != null && bolt != null) GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(bolt), "x", "x", "y", 'x', "rod"+oreDictName, 'y', Items.FEATHER));
 		}
-		
+
 		// alloy blends
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(fantasymetals.init.Items.template_blend, 2), "dustTemplate", "dustTemplate"));
 		

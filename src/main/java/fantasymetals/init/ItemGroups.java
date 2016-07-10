@@ -8,11 +8,11 @@ import net.minecraft.item.ItemStack;
 import cyano.basemetals.init.FunctionalCreativeTab;
 
 /**
- * This class initializes all item groups in Modern Metals.
+ * This class initializes all item groups in Fantasy Metals.
  * @author DrCyano
  *
  */
-public class ItemGroups extends cyano.basemetals.init.ItemGroups {
+public class ItemGroups {
 
 	public static CreativeTabs tab_blocks;
 	public static CreativeTabs tab_items;
@@ -21,12 +21,16 @@ public class ItemGroups extends cyano.basemetals.init.ItemGroups {
 	private static Item blockItem;
 //	private static Item itemItem;
 //	private static Item toolItem;
-	
+
 	private static boolean initDone = false;
-	public static void init(){
+
+	/**
+	 * 
+	 */
+	public static void init() {
 		if(initDone) return;
-		
-		// placeholder's
+
+		// placeholders
 		blockItem = Items.template_crackhammer;
 //		itemItem = Items.template_crackhammer;
 //		toolItem = Items.template_crackhammer;
@@ -42,9 +46,7 @@ public class ItemGroups extends cyano.basemetals.init.ItemGroups {
 //		tab_tools = new FunctionalCreativeTab(FantasyMetals.MODID.concat(".tools"),()->toolItem);
 		tab_items = tab_blocks;
 		tab_tools = tab_items;
-		
-		
+
 		initDone = true;
 	}
 }
-

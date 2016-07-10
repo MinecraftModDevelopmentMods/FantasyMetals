@@ -32,43 +32,6 @@ import java.util.*;
  */
 public abstract class Items {
 
-	private static Map<Item,String> itemRegistry = new HashMap<>();
-	private static Map<String,Item> allItems = new HashMap<>();
-	private static Map<MetalMaterial,List<Item>> itemsByMetal = new HashMap<>();
-	
-	private static Map<BlockDoor,Item> doorMap = new HashMap<>();
-
-	@SuppressWarnings("rawtypes")
-	private static Map<Class,Integer> classSortingValues = new HashMap<>();
-	private static Map<MetalMaterial,Integer> materialSortingValues = new HashMap<>();
-	/**
-	 * Gets an item by its name. The name is the name as it is registered in 
-	 * the GameRegistry, not its unlocalized name (the unlocalized name is the 
-	 * registered name plus the prefix "modernmetals.")
-	 * @param name The name of the item in question
-	 * @return The item matching that name, or null if there isn't one
-	 */
-	public static Item getItemByName(String name) {
-		return allItems.get(name);
-	}
-	/**
-	 * This is the reverse of the getItemByName(...) method, returning the 
-	 * registered name of an item instance (Modern Metals items only).
-	 * @param i The item in question
-	 * @return The name of the item, or null if the item is not a Modern Metals 
-	 * item.
-	 */
-	public static String getNameOfItem(Item i) {
-		return itemRegistry.get(i);
-	}
-	/**
-	 * Gets a map of all items added, sorted by metal
-	 * @return An unmodifiable map of added items catagorized by metal material
-	 */
-	public static Map<MetalMaterial,List<Item>> getItemsByMetal() {
-		return Collections.unmodifiableMap(itemsByMetal);
-	}
-
 	public static Item template_arrow;
 	public static Item template_axe;
 	public static Item template_blend;
@@ -96,6 +59,48 @@ public abstract class Items {
 	public static Item template_rod;
 	public static Item template_gear;
 
+	private static boolean initDone = false;
+
+	private static Map<Item, String> itemRegistry = new HashMap<>();
+	private static Map<String, Item> allItems = new HashMap<>();
+	private static Map<MetalMaterial, List<Item>> itemsByMetal = new HashMap<>();
+
+	private static Map<BlockDoor,Item> doorMap = new HashMap<>();
+
+	@SuppressWarnings("rawtypes")
+	private static Map<Class, Integer> classSortingValues = new HashMap<>();
+	private static Map<MetalMaterial, Integer> materialSortingValues = new HashMap<>();
+
+	/**
+	 * Gets an item by its name. The name is the name as it is registered in 
+	 * the GameRegistry, not its unlocalized name (the unlocalized name is the 
+	 * registered name plus the prefix "modernmetals.")
+	 * @param name The name of the item in question
+	 * @return The item matching that name, or null if there isn't one
+	 */
+	public static Item getItemByName(String name) {
+		return allItems.get(name);
+	}
+
+	/**
+	 * This is the reverse of the getItemByName(...) method, returning the 
+	 * registered name of an item instance (Modern Metals items only).
+	 * @param i The item in question
+	 * @return The name of the item, or null if the item is not a Modern Metals 
+	 * item.
+	 */
+	public static String getNameOfItem(Item i) {
+		return itemRegistry.get(i);
+	}
+
+	/**
+	 * Gets a map of all items added, sorted by metal
+	 * @return An unmodifiable map of added items catagorized by metal material
+	 */
+	public static Map<MetalMaterial, List<Item>> getItemsByMetal() {
+		return Collections.unmodifiableMap(itemsByMetal);
+	}
+
 	/**
 	 * Gets the inventory item corresponding to a given door block
 	 * @param b The door block
@@ -105,7 +110,9 @@ public abstract class Items {
 		return doorMap.get(b);
 	}
 
-	private static boolean initDone = false;
+	/**
+	 * 
+	 */
 	public static void init() {
 		if(initDone) return;
 		
@@ -178,11 +185,9 @@ public abstract class Items {
 		for(int i = 0; i < metlist.size(); i++) {
 			materialSortingValues.put(metlist.get(i), i*100);
 		}
-		
+
 		initDone = true;
 	}
-
-
 
 	private static Item registerItem(Item item, String name, MetalMaterial metal, CreativeTabs tab) {
 		ResourceLocation location = new ResourceLocation(FantasyMetals.MODID, name);
@@ -203,15 +208,15 @@ public abstract class Items {
 	private static Item create_ingot(MetalMaterial metal) {
 		return registerItem(new fantasymetals.items.ItemMetalIngot(metal), metal.getName()+"_"+"ingot", metal, ItemGroups.tab_items);
 	}
-	
+
 	private static Item create_nugget(MetalMaterial metal) {
 		return registerItem(new ItemMetalNugget(metal), metal.getName()+"_"+"nugget", metal, ItemGroups.tab_items);
 	}
-	
-	private static Item create_powder(MetalMaterial metal){
+
+	private static Item create_powder(MetalMaterial metal) {
 		return registerItem(new ItemMetalPowder(metal), metal.getName()+"_"+"powder", metal, ItemGroups.tab_items);
 	}
-	
+
 	private static Item create_blend(MetalMaterial metal) {
 		return registerItem(new fantasymetals.items.ItemMetalBlend(metal), metal.getName()+"_"+"blend", metal, ItemGroups.tab_items);
 	}
@@ -221,9 +226,11 @@ public abstract class Items {
 	}
 
 	private static Item create_gear(MetalMaterial metal) {
-		return registerItem(new GenericMetalItem(metal), metal.getName()+"_"+"gear", metal, ItemGroups.tab_items);
+		Item i = registerItem(new GenericMetalItem(metal), metal.getName()+"_"+"gear", metal, ItemGroups.tab_items);
+		OreDictionary.registerOre("gear"+metal.getCapitalizedName(), i);
+		return i;
 	}
-	
+
 	private static Item create_axe(MetalMaterial metal) {
 		return registerItem(new ItemMetalAxe(metal), metal.getName()+"_"+"axe", metal, ItemGroups.tab_tools);
 	}
@@ -231,19 +238,19 @@ public abstract class Items {
 	private static Item create_crackhammer(MetalMaterial metal) {
 		return registerItem(new ItemMetalCrackHammer(metal), metal.getName()+"_"+"crackhammer", metal, ItemGroups.tab_tools);
 	}
-	
+
 	private static Item create_hoe(MetalMaterial metal) {
 		return registerItem(new ItemMetalHoe(metal), metal.getName()+"_"+"hoe", metal, ItemGroups.tab_tools);
 	}
-	
+
 	private static Item create_pickaxe(MetalMaterial metal) {
 		return registerItem(new ItemMetalPickaxe(metal), metal.getName()+"_"+"pickaxe", metal, ItemGroups.tab_tools);
 	}
-	
+
 	private static Item create_shovel(MetalMaterial metal) {
 		return registerItem(new ItemMetalShovel(metal), metal.getName()+"_"+"shovel", metal, ItemGroups.tab_tools);
 	}
-	
+
 	private static Item create_sword(MetalMaterial metal) {
 		return registerItem(new ItemMetalSword(metal), metal.getName()+"_"+"sword", metal, ItemGroups.tab_tools);
 	}
@@ -287,7 +294,7 @@ public abstract class Items {
 	private static Item create_shears(MetalMaterial metal) {
 		return registerItem(new ItemMetalShears(metal), metal.getName()+"_"+"shears", metal, ItemGroups.tab_tools);
 	}
-	
+
 	private static Item create_smallblend(MetalMaterial metal) {
 		return registerItem(new ItemMetalSmallBlend(metal), metal.getName()+"_"+"smallblend", metal, ItemGroups.tab_items);
 	}
@@ -309,6 +316,11 @@ public abstract class Items {
 		return item;
 	}
 
+	/**
+	 * 
+	 * @param a
+	 * @return
+	 */
 	@SuppressWarnings("rawtypes")
 	public static int getSortingValue(ItemStack a) {
 		int classVal = 990000;
@@ -326,7 +338,11 @@ public abstract class Items {
 		}
 		return classVal + metalVal + (a.getMetadata() % 100);
 	}
-	
+
+	/**
+	 * 
+	 * @param event
+	 */
 	@SideOnly(Side.CLIENT)
 	public static void registerItemRenders(FMLInitializationEvent event) {
 		for(Item i : itemRegistry.keySet()) {

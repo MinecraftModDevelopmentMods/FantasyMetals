@@ -7,9 +7,17 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 
+/**
+ * 
+ * @author Jasmine Iwanek
+ *
+ */
 public class TinkersConstructPlugin {
 	private static boolean initDone = false;
 
+	/**
+	 * 
+	 */
 	public static void init() {
 		if(initDone) return;
 
@@ -21,14 +29,17 @@ public class TinkersConstructPlugin {
 
 		initDone = true;
 	}
-	
-	public static void registerFluid(Fluid fluid) {
-		// TODO: Make toolforge configurable
+
+	/**
+	 * 
+	 * @param fluid
+	 */
+	public static void registerFluid(Fluid fluid, boolean toolforge) {
 		if(Loader.isModLoaded("tconstruct")) {
 			NBTTagCompound message = new NBTTagCompound();
 			message.setString("fluid", fluid.getName());
 			message.setString("ore", upperCaseFirst(fluid.getName()));
-			message.setBoolean("toolforge", true);
+			message.setBoolean("toolforge", toolforge);
 			//message.setTag("alloy", alloysTagList); // you can also send an alloy with the registration (see below)
 
 			// send the NBT to TCon
@@ -36,6 +47,15 @@ public class TinkersConstructPlugin {
 		}
 	}
 
+	/**
+	 * 
+	 * @param outputName
+	 * @param outputQty
+	 * @param input1Name
+	 * @param input1Qty
+	 * @param input2Name
+	 * @param input2Qty
+	 */
 	public static void registerAlloy(String outputName, int outputQty, String input1Name, int input1Qty, String input2Name, int input2Qty)
 	{
 		// TODO: Make this accept more than two input fluids
@@ -65,7 +85,12 @@ public class TinkersConstructPlugin {
 			FMLInterModComms.sendMessage("tconstruct", "alloy", message);
 		}
 	}
-	
+
+	/**
+	 * 
+	 * @param value
+	 * @return
+	 */
 	public static String upperCaseFirst(String value) {
 
 		char[] array = value.toCharArray();

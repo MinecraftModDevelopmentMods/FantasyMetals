@@ -1,5 +1,10 @@
 package fantasymetals.data;
 
+/**
+ * 
+ * @author Jasmine Iwanek
+ *
+ */
 public abstract class DataConstants {
 
 	public static final String defaultOreSpawnJSON = "{"
