@@ -1,4 +1,4 @@
-package fantasymetals.items;
+package cyano.basemetals.items;
 
 import java.util.List;
 
@@ -17,21 +17,21 @@ import net.minecraftforge.oredict.OreDictionary;
  * @author Jasmine Iwanek
  *
  */
-public class ItemMetalBow extends net.minecraft.item.ItemBow {
+public class ItemMetalShears extends net.minecraft.item.ItemShears {
 
 	protected final MetalMaterial metal;
 	protected final String repairOreDictName;
 	protected final boolean regenerates;
-	protected final long regenInterval = 200; 
+	protected final long regenInterval = 200;
 
 	/**
 	 * 
 	 * @param metal
 	 */
-	public ItemMetalBow(MetalMaterial metal) {
+	public ItemMetalShears(MetalMaterial metal) {
 		this.metal = metal;
 		this.setMaxDamage(metal.getToolDurability());
-		this.setCreativeTab(CreativeTabs.COMBAT);
+		this.setCreativeTab(CreativeTabs.TOOLS);
 		repairOreDictName = "ingot"+metal.getCapitalizedName();
 		if(metal.equals(Materials.starsteel)) {
 			regenerates = true;

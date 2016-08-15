@@ -38,6 +38,7 @@ public class Recipes extends cyano.basemetals.init.Recipes {
 		initDone = true;
 	}
 
+	@SuppressWarnings("unused")
 	private static void initMetalRecipes() {
 		List<MetalMaterial> exceptions = Arrays.asList(Materials.vanilla_iron, Materials.vanilla_gold, Materials.vanilla_diamond, Materials.vanilla_stone, Materials.vanilla_wood, Materials.copper, Materials.silver, Materials.tin, Materials.lead, Materials.nickel, Materials.bronze, Materials.brass, Materials.steel, Materials.invar, Materials.electrum, Materials.coldiron, Materials.mithril, Materials.adamantine, Materials.starsteel, Materials.zinc, Materials.aquarium);
 

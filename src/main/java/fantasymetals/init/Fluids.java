@@ -1,7 +1,7 @@
 package fantasymetals.init;
 
 import fantasymetals.FantasyMetals;
-import fantasymetals.blocks.BlockMoltenFluid;
+import cyano.basemetals.blocks.BlockMoltenFluid;
 import cyano.basemetals.fluids.CustomFluid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;

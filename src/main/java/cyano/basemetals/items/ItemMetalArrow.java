@@ -1,4 +1,4 @@
-package fantasymetals.items;
+package cyano.basemetals.items;
 
 import cyano.basemetals.material.IMetalObject;
 import cyano.basemetals.material.MetalMaterial;
@@ -10,7 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
  * @author Jasmine Iwanek
  *
  */
-public class ItemMetalBolt extends net.minecraft.item.Item implements IOreDictionaryEntry, IMetalObject {
+public class ItemMetalArrow extends net.minecraft.item.ItemArrow implements IOreDictionaryEntry, IMetalObject {
 
 	protected final MetalMaterial metal;
 	private final String oreDict;
@@ -19,10 +19,10 @@ public class ItemMetalBolt extends net.minecraft.item.Item implements IOreDictio
 	 * 
 	 * @param metal
 	 */
-	public ItemMetalBolt(MetalMaterial metal) {
+	public ItemMetalArrow(MetalMaterial metal) {
 		this.metal = metal;
 		this.setCreativeTab(CreativeTabs.MATERIALS);
-		this.oreDict = "ammoBolt";
+		this.oreDict = "arrow"+metal.getCapitalizedName();
 	}
 
 	@Override

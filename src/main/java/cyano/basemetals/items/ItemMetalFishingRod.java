@@ -1,15 +1,22 @@
-package fantasymetals.items;
+package cyano.basemetals.items;
 
 import java.util.List;
 
 import cyano.basemetals.init.Materials;
 import cyano.basemetals.items.MetalToolEffects;
+import cyano.basemetals.material.IMetalObject;
 import cyano.basemetals.material.MetalMaterial;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.IItemPropertyGetter;
+import net.minecraft.item.ItemFishingRod;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
 /**
@@ -17,20 +24,20 @@ import net.minecraftforge.oredict.OreDictionary;
  * @author Jasmine Iwanek
  *
  */
-public class ItemMetalShears extends net.minecraft.item.ItemShears {
+public class ItemMetalFishingRod extends ItemFishingRod implements IMetalObject {
 
-	protected final MetalMaterial metal;
+	private final MetalMaterial metal;
 	protected final String repairOreDictName;
 	protected final boolean regenerates;
-	protected final long regenInterval = 200;
+	protected final long regenInterval = 200; 
 
 	/**
 	 * 
 	 * @param metal
 	 */
-	public ItemMetalShears(MetalMaterial metal) {
+	public ItemMetalFishingRod(MetalMaterial metal) {
 		this.metal = metal;
-		this.setMaxDamage(metal.getToolDurability());
+		this.setMaxDamage(64);
 		this.setCreativeTab(CreativeTabs.TOOLS);
 		repairOreDictName = "ingot"+metal.getCapitalizedName();
 		if(metal.equals(Materials.starsteel)) {
@@ -38,6 +45,15 @@ public class ItemMetalShears extends net.minecraft.item.ItemShears {
 		} else {
 			regenerates = false;
 		}
+		this.addPropertyOverride(new ResourceLocation("cast"), new IItemPropertyGetter()
+		{
+			@SideOnly(Side.CLIENT)
+			@Override
+			public float apply(ItemStack stack, World worldIn, EntityLivingBase entityIn)
+			{
+				return entityIn == null ? 0.0F : (entityIn.getHeldItemMainhand() == stack && entityIn instanceof EntityPlayer && ((EntityPlayer)entityIn).fishEntity != null ? 1.0F : 0.0F);
+			}
+		});
 	}
 
 	@Override
@@ -65,5 +81,9 @@ public class ItemMetalShears extends net.minecraft.item.ItemShears {
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean b) {
 		super.addInformation(stack, player, list, b);
 		MetalToolEffects.addToolSpecialPropertiesToolTip(metal, list);
+	}
+
+	@Override public MetalMaterial getMetalMaterial() {
+		return metal;
 	}
 }

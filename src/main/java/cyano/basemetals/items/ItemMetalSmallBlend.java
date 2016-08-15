@@ -1,4 +1,4 @@
-package fantasymetals.items;
+package cyano.basemetals.items;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;

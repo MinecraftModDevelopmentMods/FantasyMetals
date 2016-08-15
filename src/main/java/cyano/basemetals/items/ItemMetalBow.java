@@ -1,4 +1,4 @@
-package fantasymetals.items;
+package cyano.basemetals.items;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import net.minecraftforge.oredict.OreDictionary;
  * @author Jasmine Iwanek
  *
  */
-public class ItemMetalCrossbow extends net.minecraft.item.Item {
+public class ItemMetalBow extends net.minecraft.item.ItemBow {
 
 	protected final MetalMaterial metal;
 	protected final String repairOreDictName;
@@ -28,7 +28,7 @@ public class ItemMetalCrossbow extends net.minecraft.item.Item {
 	 * 
 	 * @param metal
 	 */
-	public ItemMetalCrossbow(MetalMaterial metal) {
+	public ItemMetalBow(MetalMaterial metal) {
 		this.metal = metal;
 		this.setMaxDamage(metal.getToolDurability());
 		this.setCreativeTab(CreativeTabs.COMBAT);

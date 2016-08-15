@@ -2,7 +2,6 @@ package fantasymetals.init;
 
 import fantasymetals.FantasyMetals;
 //import fantasymetals.blocks.*;
-import fantasymetals.items.*;
 import cyano.basemetals.blocks.*;
 import cyano.basemetals.items.*;
 import cyano.basemetals.material.IMetalObject;
@@ -114,7 +113,8 @@ public abstract class Items {
 	 * 
 	 */
 	public static void init() {
-		if(initDone) return;
+		if(initDone)
+			return;
 		
 		fantasymetals.init.Blocks.init();
 
@@ -147,7 +147,9 @@ public abstract class Items {
 
 		for(Item i : itemRegistry.keySet()) {
 			allItems.put(itemRegistry.get(i), i);
-			if(i instanceof IOreDictionaryEntry) { OreDictionary.registerOre(((IOreDictionaryEntry)i).getOreDictionaryName(), i); }
+			if(i instanceof IOreDictionaryEntry) {
+				OreDictionary.registerOre(((IOreDictionaryEntry)i).getOreDictionaryName(), i);
+			}
 		}
 
 		int ss = 0;
