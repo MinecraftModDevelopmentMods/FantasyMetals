@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 public class ItemMetalBlend extends cyano.basemetals.items.ItemMetalBlend {
 
 	/**
-	 * 
+	 *
 	 * @param metal
 	 */
 	public ItemMetalBlend(MetalMaterial metal) {
@@ -26,8 +26,7 @@ public class ItemMetalBlend extends cyano.basemetals.items.ItemMetalBlend {
 	public void onCreated(final ItemStack item, final World world, final EntityPlayer crafter) {
 		super.onCreated(item, world, crafter);
 		// achievement
-		if(metal == Materials.template) {
+		if(this.getMetalMaterial == Materials.template)
 			crafter.addStat(Achievements.metallurgy, 1);
-		}
 	}
 }

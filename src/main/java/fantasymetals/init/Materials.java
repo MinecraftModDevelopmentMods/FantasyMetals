@@ -4,8 +4,9 @@ import cyano.basemetals.material.MetalMaterial;
 
 /**
  * This class initializes all of the metal materials in Fantasy Metals. It also
- * contains utility methods for looking up materials by name and finding the 
+ * contains utility methods for looking up materials by name and finding the
  * tool and armor material equivalents for a given metal.
+ *
  * @author DrCyano
  *
  */
@@ -20,10 +21,11 @@ public abstract class Materials extends cyano.basemetals.init.Materials {
 	private static boolean initDone = false;
 
 	/**
-	 * 
+	 *
 	 */
 	public static void init() {
-		if(initDone) return;
+		if(initDone)
+			return;
 
 		// Mod Metals
 		template = addMaterial("template", 8, 8, 4.5);
@@ -36,14 +38,14 @@ public abstract class Materials extends cyano.basemetals.init.Materials {
 	}
 
 	private static MetalMaterial addMaterial(String name, double hardness, double strength, double magic) {
-		MetalMaterial m = new MetalMaterial(name, (float)hardness, (float)strength, (float)magic);
+		final MetalMaterial m = new MetalMaterial(name, (float)hardness, (float)strength, (float)magic);
 		registerMaterial(name, m);
 		return m;
 	}
 
 	@SuppressWarnings("unused")
 	private static MetalMaterial addRareMaterial(String name, double hardness, double strength, double magic) {
-		MetalMaterial m = new MetalMaterial(name, (float)hardness, (float)strength, (float)magic);
+		final MetalMaterial m = new MetalMaterial(name, (float)hardness, (float)strength, (float)magic, true);
 		registerMaterial(name, m);
 		return m;
 	}

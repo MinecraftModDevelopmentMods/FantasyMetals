@@ -17,10 +17,11 @@ public abstract class Achievements {
 	private static boolean initDone = false;
 
 	/**
-	 * 
+	 *
 	 */
 	public static void init() {
-		if(initDone) return;
+		if(initDone)
+			return;
 
 		page = new AchievementPage(FantasyMetals.NAME);
 		AchievementPage.registerAchievementPage(page);
@@ -40,8 +41,7 @@ public abstract class Achievements {
 	}
 
 	private static Achievement makeAchievement(String baseName, Achievement requirement, int x, int y, ItemStack icon) {
-		Achievement a = new Achievement(baseName, baseName, x, y, icon, requirement);
-		a.registerStat();
+		Achievement a = new Achievement(baseName, baseName, x, y, icon, requirement).registerStat();
 		page.getAchievements().add(a);
 		return a;
 	}
