@@ -2,7 +2,7 @@ package fantasymetals.init;
 
 import org.apache.logging.log4j.Level;
 
-import fantasymetals.ModernMetals;
+import fantasymetals.FantasyMetals;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Loader;
 
@@ -25,26 +25,12 @@ public class VeinMinerPlugin {
 			return;
 
 		if(Loader.isModLoaded("VeinMiner") || Loader.isModLoaded("veinminer")) {
-			FMLLog.log(Level.ERROR, "%s: Activating VeinMiner Support", ModernMetals.MODID);
+			FMLLog.log(Level.ERROR, "%s: Activating VeinMiner Support", FantasyMetals.MODID);
 
-			addToolsForMetal("aluminum");
-			addToolsForMetal("aluminumbrass");
-			addToolsForMetal("cadmium");
-			addToolsForMetal("chromium");
-			addToolsForMetal("galvanizedsteel");
-			addToolsForMetal("iridium");
-			addToolsForMetal("magnesium");
-			addToolsForMetal("manganese");
-			addToolsForMetal("nichrome");
-			addToolsForMetal("osmium");
-			addToolsForMetal("plutonium");
-			addToolsForMetal("rutile");
-			addToolsForMetal("stainlesssteel");
-			addToolsForMetal("tantalum");
-			addToolsForMetal("titanium");
-			addToolsForMetal("tungsten");
-			addToolsForMetal("uranium");
-			addToolsForMetal("zirconium");
+			addToolsForMetal("enderium");
+			addToolsForMetal("lumium");
+			addToolsForMetal("prismarinium");
+			addToolsForMetal("signalum");
 		}
 
 		initDone = true;
@@ -55,12 +41,12 @@ public class VeinMinerPlugin {
 	 * @param metal
 	 */
 	public static void addToolsForMetal(String metal) {
-		IMCMessage.addTool("axe", ModernMetals.MODID + ":" + metal + "_axe");
-		IMCMessage.addTool("hoe", ModernMetals.MODID + ":" + metal + "_hoe");
-		IMCMessage.addTool("pickaxe", ModernMetals.MODID + ":" + metal + "_pickaxe");
-		IMCMessage.addTool("shears", ModernMetals.MODID + ":" + metal + "_shears");
-		IMCMessage.addTool("shovel", ModernMetals.MODID + ":" + metal + "_shovel");
-//		IMCMessage.addTool("crook", ModernMetals.MODID + ":" + metal + "_crook");
-		IMCMessage.addTool("hammer", ModernMetals.MODID + ":" + metal + "_hammer");
+		IMCMessage.addTool("axe", FantasyMetals.MODID + ":" + metal + "_axe");
+		IMCMessage.addTool("hoe", FantasyMetals.MODID + ":" + metal + "_hoe");
+		IMCMessage.addTool("pickaxe", FantasyMetals.MODID + ":" + metal + "_pickaxe");
+		IMCMessage.addTool("shears", FantasyMetals.MODID + ":" + metal + "_shears");
+		IMCMessage.addTool("shovel", FantasyMetals.MODID + ":" + metal + "_shovel");
+//		IMCMessage.addTool("crook", FantasyMetals.MODID + ":" + metal + "_crook");
+		IMCMessage.addTool("hammer", FantasyMetals.MODID + ":" + metal + "_hammer");
 	}
 }
