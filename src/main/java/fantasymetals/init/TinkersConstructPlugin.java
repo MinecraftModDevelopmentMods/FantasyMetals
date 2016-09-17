@@ -3,7 +3,7 @@ package fantasymetals.init;
 import com.google.common.collect.Lists;
 
 import fantasymetals.init.Fluids;
-import modernmetals.utils.StringUtilities;
+import fantasymetals.utils.StringUtilities;
 
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
