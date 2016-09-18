@@ -10,8 +10,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 import cyano.basemetals.entity.EntityCustomArrow;
-import fantasymetals.fantasymetals;
 import cyano.basemetals.client.renderer.RenderCustomArrow;
+import fantasymetals.FantasyMetals;
 import fantasymetals.init.Blocks;
 import fantasymetals.init.Fluids;
 import fantasymetals.init.Items;
@@ -25,7 +25,7 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void preInit () {
-		Fluids.bakeModels(modernmetals.MODID);
+		Fluids.bakeModels(FantasyMetals.MODID);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCustomArrow.class, RenderCustomArrow::new);
 	}
 
@@ -33,14 +33,14 @@ public class ClientProxy extends CommonProxy {
 	public void init () {
 		ItemModelMesher itemModelMesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
 		for (Item item : Items.getItemRegistry().keySet()) {
-			itemModelMesher.register(item, 0, new ModelResourceLocation(new ResourceLocation(modernmetals.MODID, Items.getItemRegistry().get(item)), "inventory"));
+			itemModelMesher.register(item, 0, new ModelResourceLocation(new ResourceLocation(FantasyMetals.MODID, Items.getItemRegistry().get(item)), "inventory"));
 		}
 
 		for (String blockName : Blocks.getBlockRegistry().keySet()) {
 			Block block = Blocks.getBlockByName(blockName);
 			if (block instanceof BlockDoor)
 				continue; // do not add door blocks
-			itemModelMesher.register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(new ResourceLocation(modernmetals.MODID, blockName), "inventory"));
+			itemModelMesher.register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(new ResourceLocation(FantasyMetals.MODID, blockName), "inventory"));
 		}
 	}
 }
