@@ -2,15 +2,15 @@ package com.mcmoddev.fantasymetals.init;
 
 import com.mcmoddev.fantasymetals.util.Config.Options;
 
-import cyano.basemetals.material.MetalMaterial;
+import com.mcmoddev.basemetals.material.MetalMaterial;
 
 /**
- * This class initializes all of the metal materials in Fantasy Metals.
+ * This class initializes all of the materials in Fantasy Metals.
  *
- * @author DrCyano
+ * @author Jasmine Iwanek
  *
  */
-public abstract class Materials extends cyano.basemetals.init.Materials {
+public class Materials extends com.mcmoddev.lib.init.Materials {
 
 	public static MetalMaterial enderium;
 	public static MetalMaterial lumium;
@@ -29,16 +29,20 @@ public abstract class Materials extends cyano.basemetals.init.Materials {
 
 		// Mod Materials
 		if (Options.ENABLE_ENDERIUM) {
-			enderium = createMaterial("enderium", 8, 8, 4.5, 0xFF000000);
+			enderium = createAlloyMaterial("enderium", 8, 8, 4.5, 0xFF000000);
+			enderium.materialType = MetalMaterial.MaterialType.METAL;
 		}
 		if (Options.ENABLE_LUMIUM) {
-			lumium = createMaterial("lumium", 8, 8, 4.5, 0xFF000000);
+			lumium = createAlloyMaterial("lumium", 8, 8, 4.5, 0xFF000000);
+			lumium.materialType = MetalMaterial.MaterialType.METAL;
 		}
 		if (Options.ENABLE_PRISMARINIUM) {
-			prismarinium = createMaterial("prismarinium", 8, 8, 4.5, 0xFF000000);
+			prismarinium = createAlloyMaterial("prismarinium", 8, 8, 4.5, 0xFF000000);
+			prismarinium.materialType = MetalMaterial.MaterialType.METAL;
 		}
 		if (Options.ENABLE_SIGNALUM) {
-			signalum = createMaterial("signalum", 8, 8, 4.5, 0xFF000000);
+			signalum = createAlloyMaterial("signalum", 8, 8, 4.5, 0xFF000000);
+			signalum.materialType = MetalMaterial.MaterialType.METAL;
 		}
 
 		initDone = true;

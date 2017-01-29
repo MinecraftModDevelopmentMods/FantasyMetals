@@ -1,5 +1,6 @@
 package com.mcmoddev.fantasymetals.proxy;
 
+import com.mcmoddev.fantasymetals.integration.IntegrationManager;
 import com.mcmoddev.fantasymetals.FantasyMetals;
 import com.mcmoddev.fantasymetals.init.*;
 import com.mcmoddev.fantasymetals.util.Config;
@@ -26,8 +27,8 @@ public class CommonProxy {
 
 		Config.init();
 
-		Fluids.init();
 		Materials.init();
+		Fluids.init();
 		ItemGroups.init();
 		Blocks.init();
 		Items.init();
@@ -35,26 +36,7 @@ public class CommonProxy {
 
 		FMLInterModComms.sendFunctionMessage("orespawn", "api", "mmd.orespawn.FantasyMetalsOreSpawn");
 
-		/*
-		if ((Loader.isModLoaded("EnderIO")) && Options.ENABLE_ENDER_IO) {
-			EnderIO.init();
-		}
-		if ((Loader.isModLoaded("IC2")) && Options.ENABLE_IC2) {
-			//IC2.init();
-		}
-		if ((Loader.isModLoaded("tconstruct")) && Options.ENABLE_TINKERS_CONSTRUCT) {
-			TinkersConstruct.init();
-		}
-		if ((Loader.isModLoaded("Mekanism")) && Options.ENABLE_MEKANISM) {
-			Mekanism.init();
-		}
-		if ((Loader.isModLoaded("thaumcraft")) && Options.ENABLE_THAUMCRAFT) {
-			//Thaumcraft.init();
-		}
-		if ((Loader.isModLoaded("veinminer")) && Options.ENABLE_VEINMINER) {
-			VeinMiner.init();
-		}
-		*/
+		IntegrationManager.INSTANCE.preInit(event);
 	}
 
 	public void onRemap(FMLMissingMappingsEvent event) {

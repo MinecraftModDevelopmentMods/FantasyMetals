@@ -5,10 +5,10 @@ import com.mcmoddev.fantasymetals.util.Config.Options;
 /**
  * This class initializes all blocks in Fantasy Metals.
  *
- * @author DrCyano
+ * @author Jasmine Iwanek
  *
  */
-public class Blocks extends cyano.basemetals.init.Blocks {
+public class Blocks extends com.mcmoddev.lib.init.Blocks {
 
 	private static boolean initDone = false;
 

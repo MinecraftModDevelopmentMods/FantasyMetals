@@ -14,11 +14,11 @@ import net.minecraftforge.fml.common.event.*;
  * @author Jasmine Iwanek
  *
  */
-@Mod(modid = FantasyMetals.MODID, name = FantasyMetals.NAME, version = FantasyMetals.VERSION, dependencies = "required-after:Forge@[12.17.0.1976,);required-after:basemetals;before:buildingbricks", acceptedMinecraftVersions = "1.10.2,)", updateJSON = "https://raw.githubusercontent.com/jriwanek/FantasyMetals/master/update.json")
+@Mod(modid = FantasyMetals.MODID, name = FantasyMetals.NAME, version = FantasyMetals.VERSION, dependencies = "required-after:Forge@[12.17.0.1976,);required-after:basemetals;before:buildingbricks", acceptedMinecraftVersions = "1.10.2,)", updateJSON = FantasyMetals.UPDATEJSON)
 public class FantasyMetals {
 
 	@Instance
-	public static FantasyMetals INSTANCE = new FantasyMetals();
+	public static FantasyMetals INSTANCE;
 
 	/** ID of this Mod */
 	public static final String MODID = "fantasymetals";
@@ -33,18 +33,14 @@ public class FantasyMetals {
 	 */
 	public static final String VERSION = "0.12.0-beta1";
 
-	@SidedProxy(clientSide = "fantasymetals.proxy.ClientProxy", serverSide = "fantasymetals.proxy.ServerProxy")
-	public static CommonProxy PROXY = null;
+	public static final String UPDATEJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/FantasyMetals/master/update.json";
+
+	@SidedProxy(clientSide = "com.mcmoddev.fantasymetals.proxy.ClientProxy", serverSide = "com.mcmoddev.fantasymetals.proxy.ServerProxy")
+	public static CommonProxy PROXY;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-//		INSTANCE = this;
 		PROXY.preInit(event);
-	}
-
-	@EventHandler
-	public void onRemap(FMLMissingMappingsEvent event) {
-		PROXY.onRemap(event);
 	}
 
 	@EventHandler
@@ -55,5 +51,10 @@ public class FantasyMetals {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		PROXY.postInit(event);
+	}
+
+	@EventHandler
+	public void onRemap(FMLMissingMappingsEvent event) {
+		PROXY.onRemap(event);
 	}
 }

@@ -1,28 +1,16 @@
 package com.mcmoddev.fantasymetals.init;
 
+import com.mcmoddev.basemetals.material.MetalMaterial;
 import com.mcmoddev.fantasymetals.util.Config.Options;
-
-import net.minecraftforge.fluids.*;
+import com.mcmoddev.fantasymetals.util.Config.Options;
 
 /**
  * This class initializes all fluids in Fantasy Metals.
  *
- * @author DrCyano
+ * @author Jasmine Iwanek
  *
  */
-public class Fluids extends cyano.basemetals.init.Fluids {
-
-	public static Fluid fluidEnderium = null;
-	public static BlockFluidBase fluidBlockEnderium = null;
-
-	public static Fluid fluidLumium = null;
-	public static BlockFluidBase fluidBlockLumium = null;
-
-	public static Fluid fluidPrismarinium = null;
-	public static BlockFluidBase fluidBlockPrismarinium = null;
-
-	public static Fluid fluidSignalum = null;
-	public static BlockFluidBase fluidBlockSignalum = null;
+public class Fluids extends com.mcmoddev.lib.init.Fluids {
 
 	private static boolean initDone = false;
 
@@ -34,31 +22,32 @@ public class Fluids extends cyano.basemetals.init.Fluids {
 			return;
 		}
 
-		String materialName;
+		MetalMaterial material;
 
+		// fluids and fluid blocks
 		if (Options.ENABLE_ENDERIUM) {
-			materialName = "enderium";
+			material = Materials.enderium;
 
-			fluidEnderium = addFluid(materialName, 2000, 10000, 330, 10);
-			fluidBlockEnderium = addFluidBlock(materialName);
+			addFluid(material, 2000, 10000, 330, 10);
+			addFluidBlock(material);
 		}
 		if (Options.ENABLE_LUMIUM) {
-			materialName = "lumium";
+			material = Materials.lumium;
 
-			fluidLumium = addFluid(materialName, 2000, 10000, 330, 10);
-			fluidBlockLumium = addFluidBlock(materialName);
+			addFluid(material, 2000, 10000, 330, 10);
+			addFluidBlock(material);
 		}
 		if (Options.ENABLE_PRISMARINIUM) {
-			materialName = "prismarinium";
+			material = Materials.prismarinium;
 
-			fluidPrismarinium = addFluid(materialName, 2000, 10000, 330, 10);
-			fluidBlockPrismarinium = addFluidBlock(materialName);
+			addFluid(material, 2000, 10000, 330, 10);
+			addFluidBlock(material);
 		}
 		if (Options.ENABLE_SIGNALUM) {
-			materialName = "signalum";
+			material = Materials.signalum;
 
-			fluidSignalum = addFluid(materialName, 2000, 10000, 330, 10);
-			fluidBlockSignalum = addFluidBlock(materialName);
+			addFluid(material, 2000, 10000, 330, 10);
+			addFluidBlock(material);
 		}
 
 		initDone = true;

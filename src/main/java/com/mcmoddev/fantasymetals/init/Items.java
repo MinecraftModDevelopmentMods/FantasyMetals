@@ -1,14 +1,15 @@
 package com.mcmoddev.fantasymetals.init;
 
 import com.mcmoddev.fantasymetals.util.Config.Options;
+import com.mcmoddev.basemetals.material.MetalMaterial;
 
 /**
  * This class initializes all items in Fantasy Metals.
  *
- * @author DrCyano
+ * @author Jasmine Iwanek
  *
  */
-public class Items extends cyano.basemetals.init.Items {
+public class Items extends com.mcmoddev.lib.init.Items {
 
 	private static boolean initDone = false;
 
@@ -22,21 +23,28 @@ public class Items extends cyano.basemetals.init.Items {
 
 		Blocks.init();
 
+		MetalMaterial material;
 		if (Options.ENABLE_ENDERIUM) {
-			createItemsFull(Materials.enderium);
+			material = Materials.enderium;
+			createItemsFull(material);
 		}
 
 		if (Options.ENABLE_LUMIUM) {
-			createItemsFull(Materials.lumium);
+			material = Materials.lumium;
+			createItemsFull(material);
 		}
 
 		if (Options.ENABLE_PRISMARINIUM) {
-			createItemsFull(Materials.prismarinium);
+			material = Materials.prismarinium;
+			createItemsFull(material);
 		}
 
 		if (Options.ENABLE_SIGNALUM) {
-			createItemsFull(Materials.signalum);
+			material = Materials.signalum;
+			createItemsFull(material);
 		}
+
+//		addToMetList() // May not be needed, check
 
 		initDone = true;
 	}
