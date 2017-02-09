@@ -44,11 +44,11 @@ public class FantasyMetals {
 	public static CommonProxy proxy;
 
 	public static Logger logger;
-
+/*
 	private FantasyMetals() {
 		throw new IllegalAccessError("Not a instantiable class");
 	}
-
+*/
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
 //		logger = event.getModLog();
