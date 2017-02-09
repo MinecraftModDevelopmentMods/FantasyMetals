@@ -2,7 +2,7 @@ package com.mcmoddev.fantasymetals.init;
 
 import com.mcmoddev.fantasymetals.util.Config.Options;
 
-import com.mcmoddev.basemetals.material.MetalMaterial;
+import com.mcmoddev.lib.material.MetalMaterial;
 
 /**
  * This class initializes all of the materials in Fantasy Metals.
@@ -28,19 +28,19 @@ public class Materials extends com.mcmoddev.lib.init.Materials {
 		}
 
 		// Mod Materials
-		if (Options.ENABLE_ENDERIUM) {
+		if (Options.enableEnderium) {
 			enderium = createAlloyMaterial("enderium", 8, 8, 4.5, 0xFF000000);
 			enderium.materialType = MetalMaterial.MaterialType.METAL;
 		}
-		if (Options.ENABLE_LUMIUM) {
+		if (Options.enableLumium) {
 			lumium = createAlloyMaterial("lumium", 8, 8, 4.5, 0xFF000000);
 			lumium.materialType = MetalMaterial.MaterialType.METAL;
 		}
-		if (Options.ENABLE_PRISMARINIUM) {
+		if (Options.enablePrismarinium) {
 			prismarinium = createAlloyMaterial("prismarinium", 8, 8, 4.5, 0xFF000000);
 			prismarinium.materialType = MetalMaterial.MaterialType.METAL;
 		}
-		if (Options.ENABLE_SIGNALUM) {
+		if (Options.enableSignalum) {
 			signalum = createAlloyMaterial("signalum", 8, 8, 4.5, 0xFF000000);
 			signalum.materialType = MetalMaterial.MaterialType.METAL;
 		}

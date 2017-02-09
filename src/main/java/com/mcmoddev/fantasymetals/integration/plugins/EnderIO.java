@@ -1,15 +1,16 @@
 package com.mcmoddev.fantasymetals.integration.plugins;
 
-import com.mcmoddev.basemetals.integration.BaseMetalsPlugin;
-import com.mcmoddev.basemetals.integration.IIntegration;
+import com.mcmoddev.fantasymetals.integration.FantasyMetalsPlugin;
+import com.mcmoddev.fantasymetals.util.Config.Options;
+import com.mcmoddev.lib.integration.IIntegration;
 
 /**
  *
  * @author Jasmine Iwanek
  *
  */
-@BaseMetalsPlugin(EnderIO.PLUGIN_MODID)
-public class EnderIO extends com.mcmoddev.basemetals.integration.plugins.EnderIO implements IIntegration {
+@FantasyMetalsPlugin(EnderIO.PLUGIN_MODID)
+public class EnderIO extends com.mcmoddev.lib.integration.plugins.EnderIO implements IIntegration {
 
 	private static boolean initDone = false;
 
@@ -22,11 +23,21 @@ public class EnderIO extends com.mcmoddev.basemetals.integration.plugins.EnderIO
 			return;
 		}
 
-		// TODO: Verify blocks, Slabs, Ingots, Oreblocks
-		addSagMillRecipe("enderium", null, 3600);
-		addSagMillRecipe("lumium", null, 3600);
-		addSagMillRecipe("prismarinium", null, 3600);
-		addSagMillRecipe("signalum", null, 3600);
+		if (Options.enableEnderium) {
+			addSagMillRecipe("enderium", null, 3600);
+		}
+
+		if (Options.enableLumium) {
+			addSagMillRecipe("lumium", null, 3600);
+		}
+
+		if (Options.enablePrismarinium) {
+			addSagMillRecipe("prismarinium", null, 3600);
+		}
+
+		if (Options.enableSignalum) {
+			addSagMillRecipe("signalum", null, 3600);
+		}
 
 		initDone = true;
 	}

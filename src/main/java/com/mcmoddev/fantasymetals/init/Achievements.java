@@ -8,14 +8,22 @@ import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.fml.common.Loader;
 
 /** initializer for achievements */
-public class Achievements extends com.mcmoddev.basemetals.init.Achievements {
+public class Achievements extends com.mcmoddev.lib.init.Achievements {
 
-	public static Achievement enderium_maker; // make blend
-	public static Achievement lumium_maker; // make blend
-	public static Achievement prismarinium_maker; // make blend
-	public static Achievement signalum_maker; // make blend
+	/** Make Enderium Blend */
+	public static Achievement enderiumMaker;
+	/** Make Lumium Blend */
+	public static Achievement lumiumMaker;
+	/** Make Prismarinium Blend */
+	public static Achievement prismariniumMaker;
+	/** Make Signalum Blend */
+	public static Achievement signalumMaker;
 
 	private static boolean initDone = false;
+
+	private Achievements() {
+		throw new IllegalAccessError("Not a instantiable class");
+	}
 
 	/**
 	 *
@@ -29,17 +37,17 @@ public class Achievements extends com.mcmoddev.basemetals.init.Achievements {
 			AchievementPage page = new AchievementPage(Loader.instance().activeModContainer().getModId());
 			AchievementPage.registerAchievementPage(page);
 
-			if (Options.ENABLE_ENDERIUM) {
-				enderium_maker = makeAchievement("enderium_maker", metallurgy, 0, 0, Materials.enderium.ingot, page);
+			if (Options.enableEnderium) {
+				enderiumMaker = makeAchievement("enderium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 0, Materials.enderium.ingot, page);
 			}
-			if (Options.ENABLE_LUMIUM) {
-				lumium_maker = makeAchievement("lumium_maker", metallurgy, 0, 1, Materials.lumium.ingot, page);
+			if (Options.enableLumium) {
+				lumiumMaker = makeAchievement("lumium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 1, Materials.lumium.ingot, page);
 			}
-			if (Options.ENABLE_PRISMARINIUM) {
-				prismarinium_maker = makeAchievement("prismarinium_maker", metallurgy, 0, 2, Materials.prismarinium.ingot, page);
+			if (Options.enablePrismarinium) {
+				prismariniumMaker = makeAchievement("prismarinium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 2, Materials.prismarinium.ingot, page);
 			}
-			if (Options.ENABLE_SIGNALUM) {
-				signalum_maker = makeAchievement("signalum_maker", metallurgy, 0, 3, Materials.signalum.ingot, page);
+			if (Options.enableSignalum) {
+				signalumMaker = makeAchievement("signalum_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 3, Materials.signalum.ingot, page);
 			}
 		}
 

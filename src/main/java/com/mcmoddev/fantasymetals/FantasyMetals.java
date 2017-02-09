@@ -1,5 +1,8 @@
 package com.mcmoddev.fantasymetals;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.mcmoddev.fantasymetals.proxy.CommonProxy;
 
 import net.minecraftforge.fml.common.Mod;
@@ -18,7 +21,7 @@ import net.minecraftforge.fml.common.event.*;
 public class FantasyMetals {
 
 	@Instance
-	public static FantasyMetals INSTANCE;
+	public static FantasyMetals instance;
 
 	/** ID of this Mod */
 	public static final String MODID = "fantasymetals";
@@ -35,26 +38,37 @@ public class FantasyMetals {
 
 	public static final String UPDATEJSON = "https://raw.githubusercontent.com/MinecraftModDevelopment/FantasyMetals/master/update.json";
 
-	@SidedProxy(clientSide = "com.mcmoddev.fantasymetals.proxy.ClientProxy", serverSide = "com.mcmoddev.fantasymetals.proxy.ServerProxy")
-	public static CommonProxy PROXY;
+	private static final String PROXY_BASE = "com.mcmoddev." + MODID + ".proxy.";
 
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		PROXY.preInit(event);
+	@SidedProxy(clientSide = PROXY_BASE + "ClientProxy", serverSide = PROXY_BASE + "ServerProxy")
+	public static CommonProxy proxy;
+
+	public static Logger logger;
+
+	private FantasyMetals() {
+		throw new IllegalAccessError("Not a instantiable class");
 	}
 
 	@EventHandler
-	public void init(FMLInitializationEvent event) {
-		PROXY.init(event);
+	public static void preInit(FMLPreInitializationEvent event) {
+//		logger = event.getModLog();
+		logger = LogManager.getFormatterLogger(FantasyMetals.MODID);
+
+		proxy.preInit(event);
 	}
 
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		PROXY.postInit(event);
+	public static void init(FMLInitializationEvent event) {
+		proxy.init(event);
 	}
 
 	@EventHandler
-	public void onRemap(FMLMissingMappingsEvent event) {
-		PROXY.onRemap(event);
+	public static void postInit(FMLPostInitializationEvent event) {
+		proxy.postInit(event);
+	}
+
+	@EventHandler
+	public static void onRemap(FMLMissingMappingsEvent event) {
+		proxy.onRemap(event);
 	}
 }

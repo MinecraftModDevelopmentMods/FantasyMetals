@@ -15,6 +15,10 @@ public class Recipes extends com.mcmoddev.lib.init.Recipes {
 
 	private static boolean initDone = false;
 
+	private Recipes() {
+		throw new IllegalAccessError("Not a instantiable class");
+	}
+
 	/**
 	 *
 	 */
@@ -33,20 +37,19 @@ public class Recipes extends com.mcmoddev.lib.init.Recipes {
 	}
 
 	private static void initModSpecificRecipes() {
-		// alloy blends
-		if (Options.ENABLE_ENDERIUM) {
+		if (Options.enableEnderium) {
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Materials.enderium.blend, 2), "dustEnderium", "dustEnderium"));
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Materials.enderium.smallblend, 2), "smalldustEnderium", "smalldustEnderium"));
 		}
-		if (Options.ENABLE_LUMIUM) {
+		if (Options.enableLumium) {
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Materials.lumium.blend, 2), "dustLumium", "dustLumium"));
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Materials.lumium.smallblend, 2), "smalldustLumium", "smalldustLumium"));
 		}
-		if (Options.ENABLE_PRISMARINIUM) {
+		if (Options.enablePrismarinium) {
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Materials.prismarinium.blend, 2), "dustEnderium", "dustSignalum"));
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Materials.prismarinium.smallblend, 2), "smalldustPrismarinium", "smalldustPrismarinium"));
 		}
-		if (Options.ENABLE_SIGNALUM) {
+		if (Options.enableSignalum) {
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Materials.signalum.blend, 2), "dustSignalum", "dustSignalum"));
 			GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Materials.signalum.smallblend, 2), "smalldustSignalum", "smalldustSignalum"));
 		}

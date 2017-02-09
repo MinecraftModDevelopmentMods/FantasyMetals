@@ -1,7 +1,5 @@
 package com.mcmoddev.fantasymetals.init;
 
-import com.mcmoddev.basemetals.material.MetalMaterial;
-import com.mcmoddev.fantasymetals.util.Config.Options;
 import com.mcmoddev.fantasymetals.util.Config.Options;
 
 /**
@@ -14,6 +12,10 @@ public class Fluids extends com.mcmoddev.lib.init.Fluids {
 
 	private static boolean initDone = false;
 
+	private Fluids() {
+		throw new IllegalAccessError("Not a instantiable class");
+	}
+
 	/**
 	 *
 	 */
@@ -22,32 +24,24 @@ public class Fluids extends com.mcmoddev.lib.init.Fluids {
 			return;
 		}
 
-		MetalMaterial material;
-
-		// fluids and fluid blocks
-		if (Options.ENABLE_ENDERIUM) {
-			material = Materials.enderium;
-
-			addFluid(material, 2000, 10000, 330, 10);
-			addFluidBlock(material);
+		if (Options.enableEnderium) {
+			addFluid(Materials.enderium, 2000, 10000, 330, 10);
+			addFluidBlock(Materials.enderium);
 		}
-		if (Options.ENABLE_LUMIUM) {
-			material = Materials.lumium;
 
-			addFluid(material, 2000, 10000, 330, 10);
-			addFluidBlock(material);
+		if (Options.enableLumium) {
+			addFluid(Materials.lumium, 2000, 10000, 330, 10);
+			addFluidBlock(Materials.lumium);
 		}
-		if (Options.ENABLE_PRISMARINIUM) {
-			material = Materials.prismarinium;
 
-			addFluid(material, 2000, 10000, 330, 10);
-			addFluidBlock(material);
+		if (Options.enablePrismarinium) {
+			addFluid(Materials.prismarinium, 2000, 10000, 330, 10);
+			addFluidBlock(Materials.prismarinium);
 		}
-		if (Options.ENABLE_SIGNALUM) {
-			material = Materials.signalum;
 
-			addFluid(material, 2000, 10000, 330, 10);
-			addFluidBlock(material);
+		if (Options.enableSignalum) {
+			addFluid(Materials.signalum, 2000, 10000, 330, 10);
+			addFluidBlock(Materials.signalum);
 		}
 
 		initDone = true;

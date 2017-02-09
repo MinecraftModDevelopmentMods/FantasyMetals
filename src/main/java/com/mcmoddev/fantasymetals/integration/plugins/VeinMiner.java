@@ -1,7 +1,8 @@
 package com.mcmoddev.fantasymetals.integration.plugins;
 
-import com.mcmoddev.basemetals.integration.BaseMetalsPlugin;
-import com.mcmoddev.basemetals.integration.IIntegration;
+import com.mcmoddev.fantasymetals.integration.FantasyMetalsPlugin;
+import com.mcmoddev.fantasymetals.util.Config.Options;
+import com.mcmoddev.lib.integration.IIntegration;
 
 /**
  * VeinMiner Integration Plugin
@@ -9,8 +10,8 @@ import com.mcmoddev.basemetals.integration.IIntegration;
  * @author Jasmine Iwanek
  *
  */
-@BaseMetalsPlugin(VeinMiner.PLUGIN_MODID)
-public class VeinMiner extends com.mcmoddev.basemetals.integration.plugins.VeinMiner implements IIntegration {
+@FantasyMetalsPlugin(VeinMiner.PLUGIN_MODID)
+public class VeinMiner extends com.mcmoddev.lib.integration.plugins.VeinMiner implements IIntegration {
 
 	private static boolean initDone = false;
 
@@ -20,10 +21,21 @@ public class VeinMiner extends com.mcmoddev.basemetals.integration.plugins.VeinM
 			return;
 		}
 
-		addToolsForMaterial("enderium");
-		addToolsForMaterial("lumium");
-		addToolsForMaterial("prismarinium");
-		addToolsForMaterial("signalum");
+		if (Options.enableEnderium) {
+			addToolsForMaterial("enderium");
+		}
+
+		if (Options.enableLumium) {
+			addToolsForMaterial("lumium");
+		}
+
+		if (Options.enablePrismarinium) {
+			addToolsForMaterial("prismarinium");
+		}
+
+		if (Options.enableSignalum) {
+			addToolsForMaterial("signalum");
+		}
 
 		initDone = true;
 	}

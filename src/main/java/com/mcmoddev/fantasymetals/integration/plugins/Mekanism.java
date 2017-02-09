@@ -1,10 +1,10 @@
 package com.mcmoddev.fantasymetals.integration.plugins;
 
-import com.mcmoddev.basemetals.integration.BaseMetalsPlugin;
-import com.mcmoddev.basemetals.integration.IIntegration;
+import com.mcmoddev.fantasymetals.integration.FantasyMetalsPlugin;
+import com.mcmoddev.lib.integration.IIntegration;
 
-@BaseMetalsPlugin(Mekanism.PLUGIN_MODID)
-public class Mekanism extends com.mcmoddev.basemetals.integration.plugins.Mekanism implements IIntegration {
+@FantasyMetalsPlugin(Mekanism.PLUGIN_MODID)
+public class Mekanism extends com.mcmoddev.lib.integration.plugins.Mekanism implements IIntegration {
 
 	private static boolean initDone = false;
 
@@ -13,7 +13,6 @@ public class Mekanism extends com.mcmoddev.basemetals.integration.plugins.Mekani
 		if (initDone || !com.mcmoddev.basemetals.util.Config.Options.ENABLE_MEKANISM) {
 			return;
 		}
-
 
 		initDone = true;
 	}

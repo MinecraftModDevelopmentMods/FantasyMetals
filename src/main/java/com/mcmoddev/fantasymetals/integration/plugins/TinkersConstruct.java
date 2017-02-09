@@ -1,17 +1,16 @@
 package com.mcmoddev.fantasymetals.integration.plugins;
 
 import com.mcmoddev.fantasymetals.util.Config.Options;
-
-import com.mcmoddev.basemetals.integration.BaseMetalsPlugin;
-import com.mcmoddev.basemetals.integration.IIntegration;
+import com.mcmoddev.fantasymetals.integration.FantasyMetalsPlugin;
+import com.mcmoddev.lib.integration.IIntegration;
 
 /**
  *
  * @author Jasmine Iwanek
  *
  */
-@BaseMetalsPlugin(TinkersConstruct.PLUGIN_MODID)
-public class TinkersConstruct extends com.mcmoddev.basemetals.integration.plugins.TinkersConstruct implements IIntegration {
+@FantasyMetalsPlugin(TinkersConstruct.PLUGIN_MODID)
+public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.TinkersConstruct implements IIntegration {
 
 	private static boolean initDone = false;
 
@@ -21,16 +20,19 @@ public class TinkersConstruct extends com.mcmoddev.basemetals.integration.plugin
 			return;
 		}
 
-		if (Options.ENABLE_ENDERIUM) {
+		if (Options.enableEnderium) {
 			registerMaterial("enderium", false, true);
 		}
-		if (Options.ENABLE_LUMIUM) {
+
+		if (Options.enableLumium) {
 			registerMaterial("lumium", false, true);
 		}
-		if (Options.ENABLE_PRISMARINIUM) {
+
+		if (Options.enablePrismarinium) {
 			registerMaterial("prismarinium", false, true);
 		}
-		if (Options.ENABLE_SIGNALUM) {
+
+		if (Options.enableSignalum) {
 			registerMaterial("signalum", false, true);
 		}
 

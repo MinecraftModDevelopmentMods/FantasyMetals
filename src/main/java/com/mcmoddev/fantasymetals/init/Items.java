@@ -1,7 +1,6 @@
 package com.mcmoddev.fantasymetals.init;
 
 import com.mcmoddev.fantasymetals.util.Config.Options;
-import com.mcmoddev.basemetals.material.MetalMaterial;
 
 /**
  * This class initializes all items in Fantasy Metals.
@@ -13,6 +12,10 @@ public class Items extends com.mcmoddev.lib.init.Items {
 
 	private static boolean initDone = false;
 
+	protected Items() {
+		throw new IllegalAccessError("Not a instantiable class");
+	}
+
 	/**
 	 *
 	 */
@@ -23,25 +26,20 @@ public class Items extends com.mcmoddev.lib.init.Items {
 
 		Blocks.init();
 
-		MetalMaterial material;
-		if (Options.ENABLE_ENDERIUM) {
-			material = Materials.enderium;
-			createItemsFull(material);
+		if (Options.enableEnderium) {
+			createItemsFull(Materials.enderium);
 		}
 
-		if (Options.ENABLE_LUMIUM) {
-			material = Materials.lumium;
-			createItemsFull(material);
+		if (Options.enableLumium) {
+			createItemsFull(Materials.lumium);
 		}
 
-		if (Options.ENABLE_PRISMARINIUM) {
-			material = Materials.prismarinium;
-			createItemsFull(material);
+		if (Options.enablePrismarinium) {
+			createItemsFull(Materials.prismarinium);
 		}
 
-		if (Options.ENABLE_SIGNALUM) {
-			material = Materials.signalum;
-			createItemsFull(material);
+		if (Options.enableSignalum) {
+			createItemsFull(Materials.signalum);
 		}
 
 //		addToMetList() // May not be needed, check
