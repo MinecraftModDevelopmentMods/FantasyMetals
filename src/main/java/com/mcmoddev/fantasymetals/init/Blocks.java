@@ -28,15 +28,19 @@ public class Blocks extends com.mcmoddev.lib.init.Blocks {
 		}
 
 		if (Options.enableLumium) {
-			createBlocksFull(Materials.enderium);
+			createBlocksFull(Materials.lumium);
 		}
 
 		if (Options.enablePrismarinium) {
-			createBlocksFull(Materials.enderium);
+			createBlocksFull(Materials.prismarinium);
 		}
 
 		if (Options.enableSignalum) {
-			createBlocksFull(Materials.enderium);
+			createBlocksFull(Materials.signalum);
+		}
+
+		if (Options.enableTeslarium) {
+			createBlocksFull(Materials.teslarium);
 		}
 
 		initDone = true;

@@ -42,6 +42,10 @@ public class Items extends com.mcmoddev.lib.init.Items {
 			createItemsFull(Materials.signalum);
 		}
 
+		if (Options.enableTeslarium) {
+			createItemsFull(Materials.teslarium);
+		}
+
 //		addToMetList() // May not be needed, check
 
 		initDone = true;
