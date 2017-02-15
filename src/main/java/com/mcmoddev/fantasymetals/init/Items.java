@@ -43,7 +43,9 @@ public class Items extends com.mcmoddev.lib.init.Items {
 		}
 
 		if (Options.enableTeslarium) {
-			createItemsFull(Materials.teslarium);
+			createIngot(Materials.teslarium);
+			createPowder(Materials.teslarium);
+			createSmallPowder(Materials.teslarium);
 		}
 
 //		addToMetList() // May not be needed, check
