@@ -1,0 +1,8 @@
+{
+    "parent": "basemetals:block/plate",
+    "textures": {
+        "top": "fantasymetals:blocks/prismarinium_plate",
+        "side": "fantasymetals:blocks/prismarinium_plate",
+        "bottom": "fantasymetals:blocks/prismarinium_plate"
+    }
+}

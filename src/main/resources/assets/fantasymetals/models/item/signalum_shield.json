@@ -1,0 +1,14 @@
+{
+  "parent": "basemetals:item/shield",
+  "textures": {
+    "shield": "fantasymetals:blocks/signalum_block"
+  },
+    "overrides": [
+        {
+            "predicate": {
+                "blocking": 1
+            },
+            "model": "fantasymetals:item/signalum_shield_blocking"
+        }
+    ]
+}

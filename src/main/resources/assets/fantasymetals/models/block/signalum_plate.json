@@ -1,0 +1,8 @@
+{
+    "parent": "basemetals:block/plate",
+    "textures": {
+        "top": "fantasymetals:blocks/signalum_plate",
+        "side": "fantasymetals:blocks/signalum_plate",
+        "bottom": "fantasymetals:blocks/signalum_plate"
+    }
+}

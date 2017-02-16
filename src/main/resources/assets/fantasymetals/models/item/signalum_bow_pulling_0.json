@@ -1,0 +1,6 @@
+{
+    "parent": "fantasymetals:item/signalum_bow",
+    "textures": {
+        "layer0": "fantasymetals:items/signalum_bow_pulling_0"
+    }
+}

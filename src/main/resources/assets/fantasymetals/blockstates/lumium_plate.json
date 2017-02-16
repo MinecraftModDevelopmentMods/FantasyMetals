@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=down":  { "model": "fantasymetals:lumium_plate", "x": 90  },
+        "facing=up":    { "model": "fantasymetals:lumium_plate", "x": 270 },
+        "facing=north": { "model": "fantasymetals:lumium_plate"           },
+        "facing=south": { "model": "fantasymetals:lumium_plate", "y": 180 },
+        "facing=west":  { "model": "fantasymetals:lumium_plate", "y": 270 },
+        "facing=east":  { "model": "fantasymetals:lumium_plate", "y": 90  }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "fantasymetals:item/teslarium_crossbow",
+    "textures": {
+        "layer0": "fantasymetals:items/teslarium_crossbow_pulling_1"
+    }
+}

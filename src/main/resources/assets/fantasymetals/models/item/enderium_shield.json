@@ -1,0 +1,14 @@
+{
+  "parent": "basemetals:item/shield",
+  "textures": {
+    "shield": "fantasymetals:blocks/enderium_block"
+  },
+    "overrides": [
+        {
+            "predicate": {
+                "blocking": 1
+            },
+            "model": "fantasymetals:item/enderium_shield_blocking"
+        }
+    ]
+}

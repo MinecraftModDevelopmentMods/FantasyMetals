@@ -1,0 +1,6 @@
+{
+    "parent": "block/wall_ns",
+    "textures": {
+        "wall": "fantasymetals:blocks/prismarinium_block"
+    }
+}

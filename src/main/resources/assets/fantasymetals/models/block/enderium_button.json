@@ -1,0 +1,6 @@
+{
+    "parent": "block/button",
+    "textures": {
+        "texture": "fantasymetals:blocks/enderium_block"
+    }
+}

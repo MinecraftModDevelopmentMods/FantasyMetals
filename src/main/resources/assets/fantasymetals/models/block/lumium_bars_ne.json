@@ -1,0 +1,8 @@
+{
+    "parent": "basemetals:block/bars_ne",
+    "textures": {
+        "particle": "fantasymetals:blocks/lumium_bars",
+        "bars": "fantasymetals:blocks/lumium_bars",
+        "edge": "fantasymetals:blocks/lumium_bars"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "basemetals:block/plate",
+    "textures": {
+        "top": "fantasymetals:blocks/lumium_plate",
+        "side": "fantasymetals:blocks/lumium_plate",
+        "bottom": "fantasymetals:blocks/lumium_plate"
+    }
+}

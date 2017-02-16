@@ -1,0 +1,7 @@
+{
+    "parent": "fantasymetals:item/door_item",
+    "textures": {
+        "bottom": "fantasymetals:blocks/lumium_door_lower",
+        "top": "fantasymetals:blocks/lumium_door_upper"
+    }
+}

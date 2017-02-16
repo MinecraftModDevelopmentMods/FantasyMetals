@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "fantasymetals:lumium_pressure_plate_up" },
+        "powered=true": { "model": "fantasymetals:lumium_pressure_plate_down" }
+    }
+}

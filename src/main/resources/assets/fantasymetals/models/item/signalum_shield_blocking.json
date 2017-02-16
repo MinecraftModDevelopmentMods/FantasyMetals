@@ -1,0 +1,6 @@
+{
+  "parent": "basemetals:item/shield_blocking",
+  "textures": {
+    "shield": "fantasymetals:blocks/signalum_block"
+    }
+}

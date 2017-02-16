@@ -1,0 +1,14 @@
+{
+  "parent": "basemetals:item/shield",
+  "textures": {
+    "shield": "fantasymetals:blocks/teslarium_block"
+  },
+    "overrides": [
+        {
+            "predicate": {
+                "blocking": 1
+            },
+            "model": "fantasymetals:item/teslarium_shield_blocking"
+        }
+    ]
+}

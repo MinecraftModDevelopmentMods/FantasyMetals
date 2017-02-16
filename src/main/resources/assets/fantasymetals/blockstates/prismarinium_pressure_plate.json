@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "fantasymetals:prismarinium_pressure_plate_up" },
+        "powered=true": { "model": "fantasymetals:prismarinium_pressure_plate_down" }
+    }
+}
