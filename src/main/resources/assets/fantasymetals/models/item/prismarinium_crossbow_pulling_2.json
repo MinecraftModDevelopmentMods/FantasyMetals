@@ -1,0 +1,6 @@
+{
+    "parent": "fantasymetals:item/prismarinium_crossbow",
+    "textures": {
+        "layer0": "fantasymetals:items/prismarinium_crossbow_pulling_2"
+    }
+}

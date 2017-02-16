@@ -1,0 +1,8 @@
+{
+    "parent": "basemetals:block/bars_ns",
+    "textures": {
+        "particle": "fantasymetals:blocks/teslarium_bars",
+        "bars": "fantasymetals:blocks/teslarium_bars",
+        "edge": "fantasymetals:blocks/teslarium_bars"
+    }
+}

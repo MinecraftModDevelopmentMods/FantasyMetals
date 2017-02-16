@@ -1,0 +1,8 @@
+{
+    "parent": "basemetals:block/plate",
+    "textures": {
+        "top": "fantasymetals:blocks/enderium_plate",
+        "side": "fantasymetals:blocks/enderium_plate",
+        "bottom": "fantasymetals:blocks/enderium_plate"
+    }
+}

@@ -1,0 +1,14 @@
+{
+  "parent": "basemetals:item/shield",
+  "textures": {
+    "shield": "fantasymetals:blocks/prismarinium_block"
+  },
+    "overrides": [
+        {
+            "predicate": {
+                "blocking": 1
+            },
+            "model": "fantasymetals:item/prismarinium_shield_blocking"
+        }
+    ]
+}

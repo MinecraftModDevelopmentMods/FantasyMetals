@@ -1,0 +1,7 @@
+{
+    "parent": "basemetals:item/door_item",
+    "textures": {
+        "bottom": "fantasymetals:blocks/teslarium_door_lower",
+        "top": "fantasymetals:blocks/teslarium_door_upper"
+    }
+}

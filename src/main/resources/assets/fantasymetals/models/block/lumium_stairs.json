@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "fantasymetals:blocks/lumium_block",
+        "top": "fantasymetals:blocks/lumium_block",
+        "side": "fantasymetals:blocks/lumium_block"
+    }
+}

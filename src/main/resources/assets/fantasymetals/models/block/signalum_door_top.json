@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_top",
+    "textures": {
+        "bottom": "fantasymetals:blocks/signalum_door_lower",
+        "top": "fantasymetals:blocks/signalum_door_upper"
+    }
+}

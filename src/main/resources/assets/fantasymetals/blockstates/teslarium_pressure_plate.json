@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "fantasymetals:teslarium_pressure_plate_up" },
+        "powered=true": { "model": "fantasymetals:teslarium_pressure_plate_down" }
+    }
+}

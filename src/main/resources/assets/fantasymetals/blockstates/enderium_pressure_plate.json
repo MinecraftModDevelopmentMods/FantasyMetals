@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "fantasymetals:enderium_pressure_plate_up" },
+        "powered=true": { "model": "fantasymetals:enderium_pressure_plate_down" }
+    }
+}

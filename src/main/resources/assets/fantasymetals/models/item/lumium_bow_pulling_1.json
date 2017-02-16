@@ -1,0 +1,6 @@
+{
+    "parent": "fantasymetals:item/lumium_bow",
+    "textures": {
+        "layer0": "fantasymetals:items/lumium_bow_pulling_1"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "basemetals:block/bars_n",
+    "textures": {
+        "particle": "fantasymetals:blocks/prismarinium_bars",
+        "bars": "fantasymetals:blocks/prismarinium_bars",
+        "edge": "fantasymetals:blocks/prismarinium_bars"
+    }
+}

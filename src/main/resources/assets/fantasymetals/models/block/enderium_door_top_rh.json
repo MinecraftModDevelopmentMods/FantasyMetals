@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_top_rh",
+    "textures": {
+        "bottom": "fantasymetals:blocks/enderium_door_lower",
+        "top": "fantasymetals:blocks/enderium_door_upper"
+    }
+}

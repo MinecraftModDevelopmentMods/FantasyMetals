@@ -1,0 +1,6 @@
+{
+    "parent": "fantasymetals:item/enderium_bow",
+    "textures": {
+        "layer0": "fantasymetals:items/enderium_bow_pulling_0"
+    }
+}

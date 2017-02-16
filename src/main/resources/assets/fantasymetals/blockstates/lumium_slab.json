@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,variant=default": { "model": "fantasymetals:half_slab_lumium" },
+        "half=top,variant=default": { "model": "fantasymetals:upper_slab_lumium" }
+    }
+}

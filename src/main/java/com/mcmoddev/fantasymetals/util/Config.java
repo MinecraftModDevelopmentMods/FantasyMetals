@@ -94,10 +94,17 @@ public class Config {
 	public static class Options {
 
 		// MATERIALS
+		public static boolean enableAdamantine = true;
+		public static boolean enableAquarium = true;
+		public static boolean enableColdIron = true;
 		public static boolean enableEnderium = true;
 		public static boolean enableLumium = true;
+		public static boolean enableMithril = true;
 		public static boolean enablePrismarinium = true;
 		public static boolean enableSignalum = true;
+		public static boolean enableStarSteel = true;
+		public static boolean enableTeslarium = true;
+		public static boolean enableRedstone = true;
 
 		private Options() {
 			throw new IllegalAccessError("Not a instantiable class");

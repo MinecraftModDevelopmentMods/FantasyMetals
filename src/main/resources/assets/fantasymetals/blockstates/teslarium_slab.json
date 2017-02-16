@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,variant=default": { "model": "fantasymetals:half_slab_teslarium" },
+        "half=top,variant=default": { "model": "fantasymetals:upper_slab_teslarium" }
+    }
+}

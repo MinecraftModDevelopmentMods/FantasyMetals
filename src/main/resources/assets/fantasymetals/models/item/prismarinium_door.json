@@ -1,0 +1,7 @@
+{
+    "parent": "basemetals:item/door_item",
+    "textures": {
+        "bottom": "fantasymetals:blocks/prismarinium_door_lower",
+        "top": "fantasymetals:blocks/prismarinium_door_upper"
+    }
+}

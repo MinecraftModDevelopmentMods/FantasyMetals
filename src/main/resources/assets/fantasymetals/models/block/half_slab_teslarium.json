@@ -1,0 +1,8 @@
+{
+    "parent": "block/half_slab",
+    "textures": {
+        "bottom": "fantasymetals:blocks/teslarium_block",
+        "top": "fantasymetals:blocks/teslarium_block",
+        "side": "fantasymetals:blocks/teslarium_block"
+    }
+}
