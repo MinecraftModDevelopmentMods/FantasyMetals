@@ -24,7 +24,7 @@ public enum IntegrationManager {
     			IIntegration integration;
 				try {
 					integration = Class.forName(className).asSubclass(IIntegration.class).newInstance();
-					FantasyMetals.logger.info("FANTASYNMETALS Loaded: "+modId);
+					FantasyMetals.logger.info("Loaded: " + modId);
 					integrations.add(integration);
 					integration.init();
 				} catch (final Exception e) {
