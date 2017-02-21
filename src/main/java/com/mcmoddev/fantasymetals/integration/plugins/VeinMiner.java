@@ -1,7 +1,8 @@
 package com.mcmoddev.fantasymetals.integration.plugins;
 
-import com.mcmoddev.fantasymetals.integration.FantasyMetalsPlugin;
+import com.mcmoddev.fantasymetals.FantasyMetals;
 import com.mcmoddev.fantasymetals.util.Config.Options;
+import com.mcmoddev.lib.integration.MMDPlugin;
 import com.mcmoddev.lib.integration.IIntegration;
 
 /**
@@ -10,7 +11,7 @@ import com.mcmoddev.lib.integration.IIntegration;
  * @author Jasmine Iwanek
  *
  */
-@FantasyMetalsPlugin(VeinMiner.PLUGIN_MODID)
+@MMDPlugin(addonId = FantasyMetals.MODID, pluginId = VeinMiner.PLUGIN_MODID)
 public class VeinMiner extends com.mcmoddev.lib.integration.plugins.VeinMiner implements IIntegration {
 
 	private static boolean initDone = false;
@@ -35,6 +36,10 @@ public class VeinMiner extends com.mcmoddev.lib.integration.plugins.VeinMiner im
 
 		if (Options.enableSignalum) {
 			addToolsForMaterial("signalum");
+		}
+
+		if (Options.enableTeslarium) {
+			addToolsForMaterial("teslarium");
 		}
 
 		initDone = true;

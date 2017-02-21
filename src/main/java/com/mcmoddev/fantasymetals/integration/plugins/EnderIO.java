@@ -1,7 +1,8 @@
 package com.mcmoddev.fantasymetals.integration.plugins;
 
-import com.mcmoddev.fantasymetals.integration.FantasyMetalsPlugin;
+import com.mcmoddev.fantasymetals.FantasyMetals;
 import com.mcmoddev.fantasymetals.util.Config.Options;
+import com.mcmoddev.lib.integration.MMDPlugin;
 import com.mcmoddev.lib.integration.IIntegration;
 
 /**
@@ -9,7 +10,7 @@ import com.mcmoddev.lib.integration.IIntegration;
  * @author Jasmine Iwanek
  *
  */
-@FantasyMetalsPlugin(EnderIO.PLUGIN_MODID)
+@MMDPlugin(addonId = FantasyMetals.MODID, pluginId = EnderIO.PLUGIN_MODID)
 public class EnderIO extends com.mcmoddev.lib.integration.plugins.EnderIO implements IIntegration {
 
 	private static boolean initDone = false;
@@ -37,6 +38,10 @@ public class EnderIO extends com.mcmoddev.lib.integration.plugins.EnderIO implem
 
 		if (Options.enableSignalum) {
 			addSagMillRecipe("signalum", null, 3600);
+		}
+
+		if (Options.enableTeslarium) {
+			addSagMillRecipe("teslarium", null, 3600);
 		}
 
 		initDone = true;

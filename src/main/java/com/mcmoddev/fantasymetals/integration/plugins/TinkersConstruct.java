@@ -1,7 +1,8 @@
 package com.mcmoddev.fantasymetals.integration.plugins;
 
+import com.mcmoddev.fantasymetals.FantasyMetals;
 import com.mcmoddev.fantasymetals.util.Config.Options;
-import com.mcmoddev.fantasymetals.integration.FantasyMetalsPlugin;
+import com.mcmoddev.lib.integration.MMDPlugin;
 import com.mcmoddev.lib.integration.IIntegration;
 
 /**
@@ -9,7 +10,7 @@ import com.mcmoddev.lib.integration.IIntegration;
  * @author Jasmine Iwanek
  *
  */
-@FantasyMetalsPlugin(TinkersConstruct.PLUGIN_MODID)
+@MMDPlugin(addonId = FantasyMetals.MODID, pluginId = TinkersConstruct.PLUGIN_MODID)
 public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.TinkersConstruct implements IIntegration {
 
 	private static boolean initDone = false;
@@ -34,6 +35,10 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 
 		if (Options.enableSignalum) {
 			registerMaterial("signalum", false, true);
+		}
+
+		if (Options.enableTeslarium) {
+			registerMaterial("teslarium", false, true);
 		}
 
 		initDone = true;

@@ -1,7 +1,9 @@
 package com.mcmoddev.fantasymetals.proxy;
 
 import com.mcmoddev.fantasymetals.FantasyMetals;
-import com.mcmoddev.fantasymetals.init.*;
+import com.mcmoddev.fantasymetals.init.Blocks;
+import com.mcmoddev.fantasymetals.init.Fluids;
+import com.mcmoddev.fantasymetals.init.Items;
 
 import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;

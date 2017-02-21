@@ -8,17 +8,19 @@ import java.util.*;
 import com.mcmoddev.fantasymetals.FantasyMetals;
 import com.mcmoddev.fantasymetals.data.AdditionalLootTables;
 import com.mcmoddev.fantasymetals.data.DataConstants;
-import cyano.basemetals.registry.CrusherRecipeRegistry;
+import com.mcmoddev.basemetals.registry.CrusherRecipeRegistry;
 
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.*;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.common.*;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.MissingModsException;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.versioning.*;
+import net.minecraftforge.fml.common.versioning.ArtifactVersion;
+import net.minecraftforge.fml.common.versioning.DefaultArtifactVersion;
 
 /**
- * @author p455w0rd
+ * @author Jasmine Iwanek
  *
  */
 public class Config {
@@ -43,10 +45,14 @@ public class Config {
 		}
 
 		// METALS
-		Options.enableEnderium = configuration.getBoolean("EnableAluminum", MATERIALS_CAT, true, "Enable Aluminum Items and Materials");
-		Options.enableLumium = configuration.getBoolean("EnableAntimony", MATERIALS_CAT, true, "Enable Antimony Items and Materials");
-		Options.enablePrismarinium = configuration.getBoolean("EnableAquarium", MATERIALS_CAT, true, "Enable Aquarium Items and Materials");
-		Options.enableSignalum = configuration.getBoolean("EnableBismuth", MATERIALS_CAT, true, "Enable Bismuth Items and Materials");
+		Options.enableEnderium = configuration.getBoolean("EnableAluminum", MATERIALS_CAT, true,
+				"Enable Aluminum Items and Materials");
+		Options.enableLumium = configuration.getBoolean("EnableAntimony", MATERIALS_CAT, true,
+				"Enable Antimony Items and Materials");
+		Options.enablePrismarinium = configuration.getBoolean("EnableAquarium", MATERIALS_CAT, true,
+				"Enable Aquarium Items and Materials");
+		Options.enableSignalum = configuration.getBoolean("EnableBismuth", MATERIALS_CAT, true,
+				"Enable Bismuth Items and Materials");
 
 		if (configuration.hasChanged()) {
 			configuration.save();
@@ -62,9 +68,9 @@ public class Config {
 			if (!(oreSpawnFile.toFile().exists())) {
 				try {
 					Files.createDirectories(oreSpawnFile.getParent());
-					Files.write(oreSpawnFile, Arrays.asList(DataConstants.DEFAULT_ORESPAWN_JSON.split("\n")), Charset.forName("UTF-8"));
-				}
-				catch (final IOException ex) {
+					Files.write(oreSpawnFile, Arrays.asList(DataConstants.DEFAULT_ORESPAWN_JSON.split("\n")),
+							Charset.forName("UTF-8"));
+				} catch (final IOException ex) {
 					FantasyMetals.logger.error("Failed to write file " + oreSpawnFile, ex);
 				}
 			}
@@ -75,16 +81,26 @@ public class Config {
 			try {
 				final String chests = "chests";
 				Files.createDirectories(myLootFolder.resolve(chests));
-				Files.write(myLootFolder.resolve(chests).resolve("abandoned_mineshaft.json"), Collections.singletonList(AdditionalLootTables.ABANDONED_MINESHAFT));
-				Files.write(myLootFolder.resolve(chests).resolve("desert_pyramid.json"), Collections.singletonList(AdditionalLootTables.DESERT_PYRAMID));
-				Files.write(myLootFolder.resolve(chests).resolve("end_city_treasure.json"), Collections.singletonList(AdditionalLootTables.END_CITY_TREASURE));
-				Files.write(myLootFolder.resolve(chests).resolve("jungle_temple.json"), Collections.singletonList(AdditionalLootTables.JUNGLE_TEMPLE));
-				Files.write(myLootFolder.resolve(chests).resolve("nether_bridge.json"), Collections.singletonList(AdditionalLootTables.NETHER_BRIDGE));
-				Files.write(myLootFolder.resolve(chests).resolve("simple_dungeon.json"), Collections.singletonList(AdditionalLootTables.SIMPLE_DUNGEON));
-				Files.write(myLootFolder.resolve(chests).resolve("spawn_bonus_chest.json"), Collections.singletonList(AdditionalLootTables.SPAWN_BONUS_CHEST));
-				Files.write(myLootFolder.resolve(chests).resolve("stronghold_corridor.json"), Collections.singletonList(AdditionalLootTables.STRONGHOLD_CORRIDOR));
-				Files.write(myLootFolder.resolve(chests).resolve("stronghold_crossing.json"), Collections.singletonList(AdditionalLootTables.STRONGHOLD_CROSSING));
-				Files.write(myLootFolder.resolve(chests).resolve("village_blacksmith.json"), Collections.singletonList(AdditionalLootTables.VILLAGE_BLACKSMITH));
+				Files.write(myLootFolder.resolve(chests).resolve("abandoned_mineshaft.json"),
+						Collections.singletonList(AdditionalLootTables.ABANDONED_MINESHAFT));
+				Files.write(myLootFolder.resolve(chests).resolve("desert_pyramid.json"),
+						Collections.singletonList(AdditionalLootTables.DESERT_PYRAMID));
+				Files.write(myLootFolder.resolve(chests).resolve("end_city_treasure.json"),
+						Collections.singletonList(AdditionalLootTables.END_CITY_TREASURE));
+				Files.write(myLootFolder.resolve(chests).resolve("jungle_temple.json"),
+						Collections.singletonList(AdditionalLootTables.JUNGLE_TEMPLE));
+				Files.write(myLootFolder.resolve(chests).resolve("nether_bridge.json"),
+						Collections.singletonList(AdditionalLootTables.NETHER_BRIDGE));
+				Files.write(myLootFolder.resolve(chests).resolve("simple_dungeon.json"),
+						Collections.singletonList(AdditionalLootTables.SIMPLE_DUNGEON));
+				Files.write(myLootFolder.resolve(chests).resolve("spawn_bonus_chest.json"),
+						Collections.singletonList(AdditionalLootTables.SPAWN_BONUS_CHEST));
+				Files.write(myLootFolder.resolve(chests).resolve("stronghold_corridor.json"),
+						Collections.singletonList(AdditionalLootTables.STRONGHOLD_CORRIDOR));
+				Files.write(myLootFolder.resolve(chests).resolve("stronghold_crossing.json"),
+						Collections.singletonList(AdditionalLootTables.STRONGHOLD_CROSSING));
+				Files.write(myLootFolder.resolve(chests).resolve("village_blacksmith.json"),
+						Collections.singletonList(AdditionalLootTables.VILLAGE_BLACKSMITH));
 			} catch (final IOException ex) {
 				FantasyMetals.logger.error("Failed to extract additional loot tables", ex);
 			}
@@ -104,6 +120,8 @@ public class Config {
 		public static boolean enableSignalum = true;
 		public static boolean enableStarSteel = true;
 		public static boolean enableTeslarium = true;
+
+		// VANILLA
 		public static boolean enableRedstone = true;
 
 		private Options() {
