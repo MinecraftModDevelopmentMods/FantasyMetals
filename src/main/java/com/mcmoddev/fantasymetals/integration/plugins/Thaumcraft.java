@@ -1,9 +1,10 @@
 package com.mcmoddev.fantasymetals.integration.plugins;
 
-import com.mcmoddev.fantasymetals.integration.FantasyMetalsPlugin;
+import com.mcmoddev.fantasymetals.FantasyMetals;
+import com.mcmoddev.lib.integration.MMDPlugin;
 import com.mcmoddev.lib.integration.IIntegration;
 
-@FantasyMetalsPlugin(Thaumcraft.PLUGIN_MODID)
+@MMDPlugin(addonId = FantasyMetals.MODID, pluginId = Thaumcraft.PLUGIN_MODID)
 public class Thaumcraft extends com.mcmoddev.lib.integration.plugins.Thaumcraft implements IIntegration {
 
 	private static boolean initDone = false;

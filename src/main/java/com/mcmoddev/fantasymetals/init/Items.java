@@ -44,11 +44,13 @@ public class Items extends com.mcmoddev.lib.init.Items {
 
 		if (Options.enableTeslarium) {
 			createIngot(Materials.teslarium);
+			createNugget(Materials.teslarium);
 			createPowder(Materials.teslarium);
+			createRod(Materials.teslarium);
 			createSmallPowder(Materials.teslarium);
 		}
 
-//		addToMetList() // May not be needed, check
+		// addToMetList() // May not be needed, check
 
 		initDone = true;
 	}

@@ -1,6 +1,5 @@
 package com.mcmoddev.fantasymetals.init;
 
-
 import com.mcmoddev.fantasymetals.util.Config.Options;
 
 import net.minecraft.stats.Achievement;
@@ -40,12 +39,15 @@ public class Achievements extends com.mcmoddev.lib.init.Achievements {
 			if (Options.enableEnderium) {
 				enderiumMaker = makeAchievement("enderium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 0, Materials.enderium.ingot, page);
 			}
+
 			if (Options.enableLumium) {
 				lumiumMaker = makeAchievement("lumium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 1, Materials.lumium.ingot, page);
 			}
+
 			if (Options.enablePrismarinium) {
 				prismariniumMaker = makeAchievement("prismarinium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 2, Materials.prismarinium.ingot, page);
 			}
+
 			if (Options.enableSignalum) {
 				signalumMaker = makeAchievement("signalum_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 3, Materials.signalum.ingot, page);
 			}
