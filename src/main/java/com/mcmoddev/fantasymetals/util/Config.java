@@ -8,7 +8,7 @@ import java.util.*;
 import com.mcmoddev.fantasymetals.FantasyMetals;
 import com.mcmoddev.fantasymetals.data.AdditionalLootTables;
 import com.mcmoddev.fantasymetals.data.DataConstants;
-import com.mcmoddev.basemetals.registry.CrusherRecipeRegistry;
+import com.mcmoddev.lib.registry.CrusherRecipeRegistry;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
