@@ -1,6 +1,7 @@
 package com.mcmoddev.fantasymetals.integration.plugins;
 
 import com.mcmoddev.fantasymetals.FantasyMetals;
+import com.mcmoddev.fantasymetals.init.Materials;
 import com.mcmoddev.fantasymetals.util.Config.Options;
 import com.mcmoddev.lib.integration.MMDPlugin;
 import com.mcmoddev.lib.integration.IIntegration;
@@ -22,23 +23,23 @@ public class TinkersConstruct extends com.mcmoddev.lib.integration.plugins.Tinke
 		}
 
 		if (Options.enableEnderium) {
-			registerMaterial("enderium", false, true);
+			registry.getMaterial("enderium", Materials.enderium).setCastable(true).settle();
 		}
 
 		if (Options.enableLumium) {
-			registerMaterial("lumium", false, true);
+			registry.getMaterial("lumium", Materials.getMaterialByName("lumium")).setCastable(true).settle();
 		}
 
 		if (Options.enablePrismarinium) {
-			registerMaterial("prismarinium", false, true);
+			registry.getMaterial("prismarinium", Materials.getMaterialByName("prismarinium")).setCastable(true).settle();
 		}
 
 		if (Options.enableSignalum) {
-			registerMaterial("signalum", false, true);
+			registry.getMaterial("signalum", Materials.getMaterialByName("signalum")).setCastable(true).settle();
 		}
 
 		if (Options.enableTeslarium) {
-			registerMaterial("teslarium", false, true);
+			registry.getMaterial("teslarium", Materials.getMaterialByName("teslarium")).setCastable(true).settle();
 		}
 
 		initDone = true;
