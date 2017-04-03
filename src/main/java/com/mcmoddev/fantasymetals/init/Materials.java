@@ -2,8 +2,8 @@ package com.mcmoddev.fantasymetals.init;
 
 import com.mcmoddev.fantasymetals.util.Config.Options;
 
-import com.mcmoddev.lib.material.MetalMaterial;
-import com.mcmoddev.lib.material.MetalMaterial.MaterialType;
+import com.mcmoddev.lib.material.MMDMaterial;
+import com.mcmoddev.lib.material.MMDMaterial.MaterialType;
 
 /**
  * This class initializes all of the materials in Fantasy Metals.
@@ -14,29 +14,29 @@ import com.mcmoddev.lib.material.MetalMaterial.MaterialType;
 public class Materials extends com.mcmoddev.lib.init.Materials {
 
 	/** Adamantine */
-	public static MetalMaterial adamantine;
+	public static MMDMaterial adamantine;
 	/** Aquarium */
-	public static MetalMaterial aquarium;
+	public static MMDMaterial aquarium;
 	/** Cold-Iron */
-	public static MetalMaterial coldiron;
+	public static MMDMaterial coldiron;
 	/** Enderium */
-	public static MetalMaterial enderium;
+	public static MMDMaterial enderium;
 	/** Lumium */
-	public static MetalMaterial lumium;
+	public static MMDMaterial lumium;
 	/** Mithril */
-	public static MetalMaterial mithril;
+	public static MMDMaterial mithril;
 	/** Prismarinium */
-	public static MetalMaterial prismarinium;
+	public static MMDMaterial prismarinium;
 	/** Signalum */
-	public static MetalMaterial signalum;
+	public static MMDMaterial signalum;
 	/** Star-Steel */
-	public static MetalMaterial starsteel;
+	public static MMDMaterial starsteel;
 	/**	Teslarium */
-	public static MetalMaterial teslarium;
+	public static MMDMaterial teslarium;
 
 	// vanilla imports
 	/** Redstone */
-	public static MetalMaterial vanilla_redstone;
+	public static MMDMaterial vanilla_redstone;
 
 	private static boolean initDone = false;
 
