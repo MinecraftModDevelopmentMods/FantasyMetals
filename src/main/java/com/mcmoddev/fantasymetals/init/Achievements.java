@@ -1,6 +1,7 @@
 package com.mcmoddev.fantasymetals.init;
 
 import com.mcmoddev.fantasymetals.util.Config.Options;
+import com.mcmoddev.lib.data.Names;
 
 import net.minecraft.stats.Achievement;
 import net.minecraftforge.common.AchievementPage;
@@ -37,19 +38,19 @@ public class Achievements extends com.mcmoddev.lib.init.Achievements {
 			AchievementPage.registerAchievementPage(page);
 
 			if (Options.enableEnderium) {
-				enderiumMaker = makeAchievement("enderium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 0, Materials.enderium.ingot, page);
+				enderiumMaker = makeAchievement("enderium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 0, Materials.getMaterialByName("enderium").getItem(Names.INGOT), page);
 			}
 
 			if (Options.enableLumium) {
-				lumiumMaker = makeAchievement("lumium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 1, Materials.lumium.ingot, page);
+				lumiumMaker = makeAchievement("lumium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 1, Materials.getMaterialByName("lumium").getItem(Names.INGOT), page);
 			}
 
 			if (Options.enablePrismarinium) {
-				prismariniumMaker = makeAchievement("prismarinium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 2, Materials.prismarinium.ingot, page);
+				prismariniumMaker = makeAchievement("prismarinium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 2, Materials.getMaterialByName("prismarinium").getItem(Names.INGOT), page);
 			}
 
 			if (Options.enableSignalum) {
-				signalumMaker = makeAchievement("signalum_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 3, Materials.signalum.ingot, page);
+				signalumMaker = makeAchievement("signalum_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 3, Materials.getMaterialByName("signalum").getItem(Names.INGOT), page);
 			}
 		}
 
