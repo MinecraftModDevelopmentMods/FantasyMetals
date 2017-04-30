@@ -86,7 +86,7 @@ public class Materials extends com.mcmoddev.lib.init.Materials {
 
 		if (Options.enableStarSteel) {
 			starsteel = createMaterial("starsteel", MaterialType.METAL, 10, 25, 12, 0xFF53393F).setBlastResistance(2000f);
-			starsteel.regenerates = true;
+			starsteel.setRegenerates(true);
 		}
 
 		if (Options.enableTeslarium) {
