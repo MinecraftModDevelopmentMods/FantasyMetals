@@ -1,6 +1,5 @@
 package com.mcmoddev.fantasymetals.init;
 
-import com.mcmoddev.basemetals.init.ItemGroups;
 import com.mcmoddev.fantasymetals.util.Config.Options;
 import com.mcmoddev.lib.util.TabContainer;
 
