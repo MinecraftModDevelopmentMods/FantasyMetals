@@ -33,24 +33,24 @@ public class Achievements extends com.mcmoddev.lib.init.Achievements {
 			return;
 		}
 
-		if (com.mcmoddev.basemetals.util.Config.Options.enableAchievements) {
+		if (com.mcmoddev.basemetals.util.Config.Options.enableAchievements()) {
 			AchievementPage page = new AchievementPage(Loader.instance().activeModContainer().getModId());
 			AchievementPage.registerAchievementPage(page);
 
 			if (Options.enableEnderium) {
-				enderiumMaker = makeAchievement("enderium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 0, Materials.getMaterialByName("enderium").getItem(Names.INGOT), page);
+				enderiumMaker = makeAchievement("enderium_maker", com.mcmoddev.basemetals.init.Achievements.getAchievementByName("metallurgy"), 0, 0, Materials.getMaterialByName("enderium").getItem(Names.INGOT), page);
 			}
 
 			if (Options.enableLumium) {
-				lumiumMaker = makeAchievement("lumium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 1, Materials.getMaterialByName("lumium").getItem(Names.INGOT), page);
+				lumiumMaker = makeAchievement("lumium_maker", com.mcmoddev.basemetals.init.Achievements.getAchievementByName("metallurgy"), 0, 1, Materials.getMaterialByName("lumium").getItem(Names.INGOT), page);
 			}
 
 			if (Options.enablePrismarinium) {
-				prismariniumMaker = makeAchievement("prismarinium_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 2, Materials.getMaterialByName("prismarinium").getItem(Names.INGOT), page);
+				prismariniumMaker = makeAchievement("prismarinium_maker", com.mcmoddev.basemetals.init.Achievements.getAchievementByName("metallurgy"), 0, 2, Materials.getMaterialByName("prismarinium").getItem(Names.INGOT), page);
 			}
 
 			if (Options.enableSignalum) {
-				signalumMaker = makeAchievement("signalum_maker", com.mcmoddev.basemetals.init.Achievements.metallurgy, 0, 3, Materials.getMaterialByName("signalum").getItem(Names.INGOT), page);
+				signalumMaker = makeAchievement("signalum_maker", com.mcmoddev.basemetals.init.Achievements.getAchievementByName("metallurgy"), 0, 3, Materials.getMaterialByName("signalum").getItem(Names.INGOT), page);
 			}
 		}
 
